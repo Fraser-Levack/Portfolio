@@ -6,10 +6,12 @@ import Hill3 from './assets/backgrounds/hills/hill_3.svg';
 import Hill4 from './assets/backgrounds/hills/hill_4.svg';
 import Hill5 from './assets/backgrounds/hills/hill_5.svg';
 import Hill6 from './assets/backgrounds/hills/hill_6.svg';
+import Me from './assets/images/ski.png';
 import ParallaxHill from './components/ParallaxHill.tsx';
 
 function App() {
     return (
+        <>
         <div className={'landscape'}>
             <div className={'hill-wrapper'}>
                 <ParallaxHill src={Ground} alt={'Ground'} className={'hill ground'} speed={0.1} />
@@ -21,6 +23,15 @@ function App() {
                 <ParallaxHill src={Hill6} alt={'Hill6'} className={'hill hill-6'} speed={0.7} />
             </div>
         </div>
+            <div className={'header card'}>
+                <img className={'my-photo'} src={Me} alt={'Fraser W Levack'}/>
+                <div>
+                    <h1 className={'my-name'}> Fraser Levack </h1>
+                    <h3 className={'my-title'}> Software Developer </h3>
+                </div>
+
+            </div>
+        </>
     );
 }
 

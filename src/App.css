@@ -61,3 +61,43 @@ html, body {
   z-index: 1;
   right: 0;
 }
+
+.header {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  display: flex;
+  gap: 5rem;
+  justify-content: space-evenly;
+  width: 50rem;
+  max-height: 50%;
+  background-color: #ffffff10;
+  border-radius: 1rem;
+  border: 2px solid #ffffff13;
+
+  z-index: 7;
+  padding: 2rem;
+}
+
+.my-name {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1a1813;
+  text-align: center;
+  line-height: 0.8;
+}
+
+.my-title {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #1a1813;
+  text-align: center;
+  line-height: 0;
+}
+
+.my-photo {
+  width: 20rem;
+  border-radius: 2rem;
+  object-fit: cover;
+}
