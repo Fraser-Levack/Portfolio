@@ -28,7 +28,7 @@ html, body {
 
 .hill {
   position: absolute;
-  bottom: 0; /* Start at the bottom */
+  bottom: -1%; /* Start at the bottom */
 }
 
 .ground {
@@ -75,7 +75,6 @@ html, body {
   background-color: #ffffff10;
   border-radius: 1rem;
   border: 2px solid #ffffff13;
-
   z-index: 7;
   padding: 2rem;
 }
@@ -119,11 +118,9 @@ html, body {
 }
 
 .social-link:hover {
-  /*  add rocking animation */
   animation: rocking 1s infinite;
 }
 
-/* rocking animation */
 @keyframes rocking {
   0% {
     transform: rotate(0deg) scale(1.1);
@@ -144,10 +141,116 @@ html, body {
   gap: 0;
 }
 
-.language-icon{
+.language-icon {
   transform: scale(0.8);
 }
 
-.technology-icon{
+.technology-icon {
   transform: scale(0.8);
+}
+
+/* Media Queries for Responsive Design */
+
+/* For screens smaller than 768px (typical mobile devices) */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    top: 70%;
+    width: 15rem;
+    height: 50rem;
+    padding: 1rem;
+    max-height: none;
+  }
+
+  .header-content {
+    color: #CECCCC;
+  }
+
+  .my-photo {
+    width: 15rem;
+  }
+
+  .my-name {
+    font-size: 1.5rem;
+  }
+
+  .my-title {
+    font-size: 1rem;
+  }
+
+  .info-tag {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .info-tag.languages, .info-tag.technologies {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .language-icon, .technology-icon {
+    transform: scale(0.7);
+  }
+}
+
+/* For screens between 768px and 1024px (tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .header {
+    width: 70%;
+    gap: 3rem;
+    padding: 1.5rem;
+  }
+
+  .my-photo {
+    width: 18rem;
+  }
+
+  .my-name {
+    font-size: 2.5rem;
+  }
+
+  .my-title {
+    font-size: 1.75rem;
+  }
+
+  .info-tag {
+    gap: 0.75rem;
+  }
+
+  .language-icon, .technology-icon {
+    transform: scale(0.75);
+  }
+}
+
+/* For screens larger than 1024px (desktops) */
+@media (min-width: 1024px) {
+  .header {
+    width: 50rem;
+    gap: 5rem;
+    padding: 2rem;
+  }
+
+  .my-photo {
+    width: 20rem;
+  }
+
+  .my-name {
+    font-size: 3rem;
+  }
+
+  .my-title {
+    font-size: 2rem;
+  }
+
+  .info-tag {
+    gap: 1rem;
+  }
+
+  .language-icon, .technology-icon {
+    transform: scale(0.8);
+  }
 }
