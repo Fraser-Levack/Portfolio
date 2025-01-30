@@ -16,7 +16,6 @@ const ParallaxHill: React.FC<ParallaxHillProps> = ({ src, alt, className, speed 
     useEffect(() => {
         const handleScroll = () => {
             const offset = window.scrollY * speed;
-            console.log(`ScrollY: ${window.scrollY}, Offset: ${offset}`); // Debugging
             set({ transform: `translateY(${offset}px)` });
         };
 

@@ -7,6 +7,12 @@ import Hill4 from './assets/backgrounds/hills/hill_4.svg';
 import Hill5 from './assets/backgrounds/hills/hill_5.svg';
 import Hill6 from './assets/backgrounds/hills/hill_6.svg';
 import Me from './assets/images/ski.png';
+import MapPin from './assets/icons/map-pin.svg';
+import Scot from './assets/icons/scot.svg';
+import GitHub from './assets/icons/github.svg';
+import LinkedIn from './assets/icons/linkedin.svg';
+import Mail from './assets/icons/mail.svg';
+import Phone from './assets/icons/phone.svg';
 import ParallaxHill from './components/ParallaxHill.tsx';
 
 function App() {
@@ -25,11 +31,31 @@ function App() {
         </div>
             <div className={'header card'}>
                 <img className={'my-photo'} src={Me} alt={'Fraser W Levack'}/>
-                <div>
+                <div className={'header-content'}>
                     <h1 className={'my-name'}> Fraser Levack </h1>
                     <h3 className={'my-title'}> Software Developer </h3>
-                </div>
+                    <div className={'info-tag'}>
+                        <img src={MapPin} alt={'Location'}/>
+                        <p> Glasgow, Scotland </p>
+                        <img src={Scot} alt={'scotland'}/>
+                    </div>
+                    <div className={'line-break'}/>
+                    <div className={'info-tag'}>
+                        <a href="https://github.com/Fraser-Levack" target="_blank" rel="noopener noreferrer">
+                            <img src={GitHub} alt={'Github'} className={'social-link'}/>
+                        </a>
+                        <a href="https://www.linkedin.com/in/fraser-levack/" target="_blank" rel="noopener noreferrer">
+                            <img src={LinkedIn} alt={'LinkedIn'} className={'social-link'}/>
+                        </a>
+                        <a href="mailto:flevack28@gmail.com">
+                            <img src={Mail} alt={'Email'} className={'social-link'}/>
+                        </a>
+                        <a href="tel:07724349134">
+                        <img src={Phone} alt={'Phone'} className={'social-link'}/>
+                        </a>
+                    </div>
 
+                </div>
             </div>
         </>
     );
