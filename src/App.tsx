@@ -75,7 +75,7 @@ function App() {
                     </div>
                     <div className={'line-break'}/>
                     <div className={'info-tag languages'}>
-                        <p><strong><sub> Proficient in: </sub></strong></p>
+                        {/*<p><strong><sub> Proficient in: </sub></strong></p>*/}
                         <img src={Typescript} alt={'Typescript'} className={'language-icon'}/>
                         <img src={Python} alt={'Python'} className={'language-icon'}/>
                         <img src={Java} alt={'Java'} className={'language-icon'}/>
@@ -85,7 +85,7 @@ function App() {
                         <img src={CSS} alt={'CSS'} className={'language-icon'}/>
                     </div>
                     <div className={'info-tag technologies'}>
-                        <p><strong><sub> Technologies I use: </sub></strong></p>
+                        {/*<p><strong><sub> Technologies I use: </sub></strong></p>*/}
                         <img  src={ReactIcon} alt={'React'} className={'technology-icon'}/>
                         <img  src={Django} alt={'Django'} className={'technology-icon'}/>
                         <img  src={Vite} alt={'Vite'} className={'technology-icon'}/>
