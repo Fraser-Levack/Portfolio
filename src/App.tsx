@@ -6,13 +6,32 @@ import Hill3 from './assets/backgrounds/hills/hill_3.svg';
 import Hill4 from './assets/backgrounds/hills/hill_4.svg';
 import Hill5 from './assets/backgrounds/hills/hill_5.svg';
 import Hill6 from './assets/backgrounds/hills/hill_6.svg';
+
 import Me from './assets/images/ski.png';
+
 import MapPin from './assets/icons/map-pin.svg';
 import Scot from './assets/icons/scot.svg';
 import GitHub from './assets/icons/github.svg';
 import LinkedIn from './assets/icons/linkedin.svg';
 import Mail from './assets/icons/mail.svg';
 import Phone from './assets/icons/phone.svg';
+
+import Typescript from './assets/icons/languages/typescript.svg';
+import Python from './assets/icons/languages/python.svg';
+import Java from './assets/icons/languages/java.svg';
+import C from './assets/icons/languages/c.svg';
+import Cpp from './assets/icons/languages/cpp.svg';
+import HTML from './assets/icons/languages/html.svg';
+import CSS from './assets/icons/languages/css.svg';
+
+import ReactIcon from './assets/icons/technologies/react.svg';
+import Django from './assets/icons/technologies/django.svg';
+import Vite from './assets/icons/technologies/vite.svg';
+import Node from './assets/icons/technologies/node.svg';
+import Firebase from './assets/icons/technologies/firebase.svg';
+import Deno from './assets/icons/technologies/deno.svg';
+import Cloudinary from './assets/icons/technologies/cloudinary.svg';
+
 import ParallaxHill from './components/ParallaxHill.tsx';
 
 function App() {
@@ -51,10 +70,30 @@ function App() {
                             <img src={Mail} alt={'Email'} className={'social-link'}/>
                         </a>
                         <a href="tel:07724349134">
-                        <img src={Phone} alt={'Phone'} className={'social-link'}/>
+                            <img src={Phone} alt={'Phone'} className={'social-link'}/>
                         </a>
                     </div>
-
+                    <div className={'line-break'}/>
+                    <div className={'info-tag languages'}>
+                        <p><strong><sub> Proficient in: </sub></strong></p>
+                        <img src={Typescript} alt={'Typescript'} className={'language-icon'}/>
+                        <img src={Python} alt={'Python'} className={'language-icon'}/>
+                        <img src={Java} alt={'Java'} className={'language-icon'}/>
+                        <img src={C} alt={'C'} className={'language-icon'}/>
+                        <img src={Cpp} alt={'C++'} className={'language-icon'}/>
+                        <img src={HTML} alt={'HTML'} className={'language-icon'}/>
+                        <img src={CSS} alt={'CSS'} className={'language-icon'}/>
+                    </div>
+                    <div className={'info-tag technologies'}>
+                        <p><strong><sub> Technologies I use: </sub></strong></p>
+                        <img  src={ReactIcon} alt={'React'} className={'technology-icon'}/>
+                        <img  src={Django} alt={'Django'} className={'technology-icon'}/>
+                        <img  src={Vite} alt={'Vite'} className={'technology-icon'}/>
+                        <img  src={Node} alt={'Node'} className={'technology-icon'}/>
+                        <img  src={Firebase} alt={'Firebase'} className={'technology-icon'}/>
+                        <img  src={Deno} alt={'Deno'} className={'technology-icon'}/>
+                        <img src={Cloudinary} alt={'Cloudinary'} className={'technology-icon'}/>
+                    </div>
                 </div>
             </div>
         </>
