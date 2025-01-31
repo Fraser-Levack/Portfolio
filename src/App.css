@@ -117,6 +117,10 @@ html, body {
   line-height: 0.5;
 }
 
+.light {
+  display:none;
+}
+
 .social-link:hover {
   animation: rocking 1s infinite;
 }
@@ -179,6 +183,18 @@ html, body {
 
   .my-title {
     font-size: 1rem;
+  }
+
+  .light{
+    display: block;
+  }
+
+  .dark{
+    display: none;
+  }
+
+  .line-break {
+    background-color: #ffffff80;
   }
 
   .info-tag {

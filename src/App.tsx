@@ -15,6 +15,14 @@ import GitHub from './assets/icons/github.svg';
 import LinkedIn from './assets/icons/linkedin.svg';
 import Mail from './assets/icons/mail.svg';
 import Phone from './assets/icons/phone.svg';
+import TextFile from './assets/icons/file-text.svg'
+
+import MapPinLight from './assets/icons/map-pin-light.svg';
+import GitHubLight from './assets/icons/github-light.svg';
+import LinkedInLight from './assets/icons/linkedin-light.svg';
+import MailLight from './assets/icons/mail-light.svg';
+import PhoneLight from './assets/icons/phone-light.svg';
+import TextFileLight from './assets/icons/file-text-light.svg'
 
 import Typescript from './assets/icons/languages/typescript.svg';
 import Python from './assets/icons/languages/python.svg';
@@ -54,23 +62,32 @@ function App() {
                     <h1 className={'my-name'}> Fraser Levack </h1>
                     <h3 className={'my-title'}> Software Developer </h3>
                     <div className={'info-tag'}>
-                        <img src={MapPin} alt={'Location'}/>
+                        <img src={MapPin} alt={'Location'} className={'dark'}/>
+                        <img src={MapPinLight} alt={'Location'} className={'light'}/>
                         <p> Glasgow, Scotland </p>
                         <img src={Scot} alt={'scotland'}/>
                     </div>
                     <div className={'line-break'}/>
                     <div className={'info-tag'}>
                         <a href="https://github.com/Fraser-Levack" target="_blank" rel="noopener noreferrer">
-                            <img src={GitHub} alt={'Github'} className={'social-link'}/>
+                            <img src={GitHub} alt={'Github'} className={'social-link dark'}/>
+                            <img src={GitHubLight} alt={'Github'} className={'social-link light'}/>
                         </a>
                         <a href="https://www.linkedin.com/in/fraser-levack/" target="_blank" rel="noopener noreferrer">
-                            <img src={LinkedIn} alt={'LinkedIn'} className={'social-link'}/>
+                            <img src={LinkedIn} alt={'LinkedIn'} className={'social-link dark'}/>
+                            <img src={LinkedInLight} alt={'LinkedIn'} className={'social-link light'}/>
                         </a>
                         <a href="mailto:flevack28@gmail.com">
-                            <img src={Mail} alt={'Email'} className={'social-link'}/>
+                            <img src={Mail} alt={'Email'} className={'social-link dark'}/>
+                            <img src={MailLight} alt={'Email'} className={'social-link light'}/>
                         </a>
                         <a href="tel:07724349134">
-                            <img src={Phone} alt={'Phone'} className={'social-link'}/>
+                            <img src={Phone} alt={'Phone'} className={'social-link dark'}/>
+                            <img src={PhoneLight} alt={'Phone'} className={'social-link light'}/>
+                        </a>
+                        <a href="/documents/Fraser_W_Levack_CV_2025.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">
+                            <img src={TextFile} alt={'CV'} className={'social-link dark'}/>
+                            <img src={TextFileLight} alt={'CV'} className={'social-link light'}/>
                         </a>
                     </div>
                     <div className={'line-break'}/>
