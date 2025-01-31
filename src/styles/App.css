@@ -193,7 +193,7 @@ html, body {
     border: 2px solid #ffffff;
 
     position: relative;
-    transition: background-color 1s ease, border-color 1s ease;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
 }
 
 /* Gradient animation */
@@ -248,7 +248,7 @@ html, body {
 .experience-item:before {
   content: '';
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 0.5s ease;
   position: absolute;
   top: -2px; /* Border width */
   left: -2px; /* Border width */
@@ -325,6 +325,11 @@ html, body {
     gap: 1rem;
   }
 
+  .experience-item {
+    max-width: 14rem;
+    margin: 0 0 0 -0.5rem;
+  }
+
   .experience-header {
     margin: 0 0 0.5rem 0;
     font-size: 1.5rem;
@@ -351,15 +356,15 @@ html, body {
   }
 
   .timeline-line div:nth-child(1) {
-    transform: translate(-30%, 5rem);
+    transform: translate(-35%, 5rem);
   }
 
   .timeline-line div:nth-child(2) {
-    transform: translate(-30%, 22.5rem);
+    transform: translate(-35%, 25rem);
   }
 
   .timeline-line div:nth-child(3) {
-    transform: translate(-30%, 42.5rem);
+    transform: translate(-35%, 47rem);
   }
 
   .header-content {
