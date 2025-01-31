@@ -113,6 +113,52 @@ function App() {
                     </div>
                 </div>
             </div>
+            <div className={'experience card'}>
+                <div className={'vertical-timeline'}>
+                    <div className={'timeline-line'}>
+                        {/*    add timeline marks three to begin with */}
+                        <div className={'timeline-mark'}/>
+                        <div className={'timeline-mark'}/>
+                        <div className={'timeline-mark'}/>
+                    </div>
+                </div>
+
+                <div className={'experience-content'}>
+                    <h1 className={'experience-header'}> My Experience </h1>
+                    <div className={'experiences-container'}>
+                        <div className={'experience-item'}>
+                            <h3> Freelance Web developer </h3>
+                            <div className={'experience-sub-info'}>
+                                <p style={{color: '#4467e3'}}>Dundee University</p> <p className={'sub-info-mid'}> Typescript & React </p>
+                                <p> 2024 - Present </p>
+                            </div>
+                            <p className={'experience-info'}> Full stack development for Dundee Uni, Duncan of Jordanstone College of Art & Design,
+                                fifth year architecture course. Working with students to design and release a working
+                                web CMS to display their work. </p>
+                        </div>
+                        <div className={'experience-item'}>
+                            <h3> Software Developer & Team Chair </h3>
+                            <div className={'experience-sub-info'}>
+                                <p style={{color: '#1892be'}}>Off</p> <p style={{color: '#dd1167'}}>Axis</p> <p
+                                style={{color: '#f7ef3b'}}>Gigs</p> <p className={'sub-info-mid'}> Django, HTML & JS </p> <p> 2024 - Present </p>
+                            </div>
+                            <p className={'experience-info'}> Co-ordinating a team to produce a working ticketing system for the gigs company
+                                Off Axis Gigs. As well as tickets Off Axis Gigs gives a place for up and coming
+                                artist to connect and support each other.</p>
+                        </div>
+                        <div className={'experience-item'}>
+                            <h3> FullStack Mobile Developer </h3>
+                            <div className={'experience-sub-info'}>
+                                <p style={{color: '#98fb98'}}>Grove Gardening</p> <p className={'sub-info-mid'}> React Native </p> <p> 2024 - Present </p>
+                            </div>
+                            <p className={'experience-info'}> Using React Native, to produce a modern gardening mobile application.
+                                Designed to be a efficient way for users to find gardeners nearby and
+                                remove the hassle of organising dates for them to do gardening work.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </>
     );
 }

@@ -70,13 +70,16 @@ html, body {
   display: flex;
   gap: 5rem;
   justify-content: space-evenly;
-  width: 50rem;
   max-height: 50%;
+}
+
+.card {
   background-color: #ffffff10;
   border-radius: 1rem;
   border: 2px solid #ffffff13;
   z-index: 7;
   padding: 2rem;
+  width: 50rem;
 }
 
 .header-content {
@@ -153,6 +156,89 @@ html, body {
   transform: scale(0.8);
 }
 
+.experience {
+  position: absolute;
+  top: 175%;
+  right: 50%;
+  transform: translate(50%, -50%);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: start;
+  gap: 3rem;
+}
+
+.timeline-line {
+  position: relative;
+  margin: 0 5rem;
+  width: 3px;
+  height: 100vh;
+  background: repeating-linear-gradient(
+          to top,
+          #ffffff 0%,
+          #1a1813 50%,
+          #ffffff 100%,
+          #1a1813 150%
+  );
+  background-size: 100% 400%;
+  animation: gradient-move 3s ease-in-out infinite;
+}
+
+.timeline-mark {
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #1a1813;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+
+    position: relative;
+
+}
+
+/* Gradient animation */
+@keyframes gradient-move {
+  0% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.timeline-line div:nth-child(1) {
+  transform: translate(-30%, 5rem);
+}
+
+.timeline-line div:nth-child(2) {
+  transform: translate(-30%, 18rem);
+}
+
+.timeline-line div:nth-child(3) {
+  transform: translate(-30%, 31rem);
+}
+
+.experience-header {
+  margin: 0 5rem 1.5rem 5rem;
+}
+
+.experience-item {
+  margin: 0 0 1.5rem 0;
+}
+
+.experience-sub-info {
+  display : flex;
+  flex-direction: row;
+  gap: 1rem;
+  line-height: 0;
+}
+
+.sub-info-mid {
+/*  white borders on left and right*/
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+}
+
 /* Media Queries for Responsive Design */
 
 /* For screens smaller than 768px (typical mobile devices) */
@@ -167,6 +253,50 @@ html, body {
     height: 50rem;
     padding: 1rem;
     max-height: none;
+  }
+
+  .experience {
+    top: 230%;
+    width: 15rem;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .experience-header {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+  }
+
+  .experience h3 {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .experience-sub-info {
+    gap: 0.5rem;
+    line-height: 1;
+    font-size: 0.75rem;
+  }
+
+  .experience-info {
+    font-size: 0.75rem;
+  }
+
+  .timeline-line {
+    margin: 0 0.5rem;
+    height: 150vh;
+  }
+
+  .timeline-line div:nth-child(1) {
+    transform: translate(-30%, 5rem);
+  }
+
+  .timeline-line div:nth-child(2) {
+    transform: translate(-30%, 22.5rem);
+  }
+
+  .timeline-line div:nth-child(3) {
+    transform: translate(-30%, 42.5rem);
   }
 
   .header-content {
