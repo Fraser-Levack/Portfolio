@@ -1,0 +1,23 @@
+.icon-name {
+     display: none;
+     position: absolute;
+     bottom: 100%;
+     left: 50%;
+     transform: translateX(-50%);
+     background-color: #1a1813;
+     color: #fff;
+     padding: 2px 5px;
+     border-radius: 3px;
+     white-space: nowrap;
+     z-index: 8;
+     line-height: 1;
+ }
+
+.icon-container {
+    position: relative;
+    display: inline-block;
+}
+
+.icon-container:hover .icon-name {
+    display: block;
+}

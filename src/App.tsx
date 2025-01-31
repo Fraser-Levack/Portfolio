@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import Ground from './assets/backgrounds/hills/ground.svg';
 import Hill1 from './assets/backgrounds/hills/hill_1.svg';
 import Hill2 from './assets/backgrounds/hills/hill_2.svg';
@@ -42,6 +42,8 @@ import Cloudinary from './assets/icons/technologies/cloudinary.svg';
 
 import ParallaxHill from './components/ParallaxHill.tsx';
 
+import Icon from './components/Icon.tsx';
+
 function App() {
     return (
         <>
@@ -70,46 +72,46 @@ function App() {
                     <div className={'line-break'}/>
                     <div className={'info-tag'}>
                         <a href="https://github.com/Fraser-Levack" target="_blank" rel="noopener noreferrer">
-                            <img src={GitHub} alt={'Github'} className={'social-link dark'}/>
-                            <img src={GitHubLight} alt={'Github'} className={'social-link light'}/>
+                            <Icon src={GitHub} alt={'Github'} className={'social-link dark'} name={'GitHub'}/>
+                            <Icon src={GitHubLight} alt={'Github'} className={'social-link light'} name={'GitHub'}/>
                         </a>
                         <a href="https://www.linkedin.com/in/fraser-levack/" target="_blank" rel="noopener noreferrer">
-                            <img src={LinkedIn} alt={'LinkedIn'} className={'social-link dark'}/>
-                            <img src={LinkedInLight} alt={'LinkedIn'} className={'social-link light'}/>
+                            <Icon src={LinkedIn} alt={'LinkedIn'} className={'social-link dark'} name={'LinkedIn'}/>
+                            <Icon src={LinkedInLight} alt={'LinkedIn'} className={'social-link light'} name={'LinkedIn'}/>
                         </a>
                         <a href="mailto:flevack28@gmail.com">
-                            <img src={Mail} alt={'Email'} className={'social-link dark'}/>
-                            <img src={MailLight} alt={'Email'} className={'social-link light'}/>
+                            <Icon src={Mail} alt={'Email'} className={'social-link dark'} name={'Email'}/>
+                            <Icon src={MailLight} alt={'Email'} className={'social-link light'} name={'Email'}/>
                         </a>
                         <a href="tel:07724349134">
-                            <img src={Phone} alt={'Phone'} className={'social-link dark'}/>
-                            <img src={PhoneLight} alt={'Phone'} className={'social-link light'}/>
+                            <Icon src={Phone} alt={'Phone'} className={'social-link dark'} name={'Phone'}/>
+                            <Icon src={PhoneLight} alt={'Phone'} className={'social-link light'} name={'Phone'}/>
                         </a>
                         <a href="/documents/Fraser_W_Levack_CV_2025.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">
-                            <img src={TextFile} alt={'CV'} className={'social-link dark'}/>
-                            <img src={TextFileLight} alt={'CV'} className={'social-link light'}/>
+                            <Icon src={TextFile} alt={'CV'} className={'social-link dark'} name={'My CV'}/>
+                            <Icon src={TextFileLight} alt={'CV'} className={'social-link light'} name={'My CV'}/>
                         </a>
                     </div>
                     <div className={'line-break'}/>
                     <div className={'info-tag languages'}>
                         {/*<p><strong><sub> Proficient in: </sub></strong></p>*/}
-                        <img src={Typescript} alt={'Typescript'} className={'language-icon'}/>
-                        <img src={Python} alt={'Python'} className={'language-icon'}/>
-                        <img src={Java} alt={'Java'} className={'language-icon'}/>
-                        <img src={C} alt={'C'} className={'language-icon'}/>
-                        <img src={Cpp} alt={'C++'} className={'language-icon'}/>
-                        <img src={HTML} alt={'HTML'} className={'language-icon'}/>
-                        <img src={CSS} alt={'CSS'} className={'language-icon'}/>
+                        <Icon src={Typescript} alt={'Typescript'} className={'language-icon'} name={'TypeScript'}/>
+                        <Icon src={Python} alt={'Python'} className={'language-icon'} name={'Python'}/>
+                        <Icon src={Java} alt={'Java'} className={'language-icon'} name={'Java'}/>
+                        <Icon src={C} alt={'C'} className={'language-icon'} name={'C'}/>
+                        <Icon src={Cpp} alt={'C++'} className={'language-icon'} name={'C++'}/>
+                        <Icon src={HTML} alt={'HTML'} className={'language-icon'} name={'HTML'}/>
+                        <Icon src={CSS} alt={'CSS'} className={'language-icon'} name={'CSS'}/>
                     </div>
                     <div className={'info-tag technologies'}>
                         {/*<p><strong><sub> Technologies I use: </sub></strong></p>*/}
-                        <img  src={ReactIcon} alt={'React'} className={'technology-icon'}/>
-                        <img  src={Django} alt={'Django'} className={'technology-icon'}/>
-                        <img  src={Vite} alt={'Vite'} className={'technology-icon'}/>
-                        <img  src={Node} alt={'Node'} className={'technology-icon'}/>
-                        <img  src={Firebase} alt={'Firebase'} className={'technology-icon'}/>
-                        <img  src={Deno} alt={'Deno'} className={'technology-icon'}/>
-                        <img src={Cloudinary} alt={'Cloudinary'} className={'technology-icon'}/>
+                        <Icon  src={ReactIcon} alt={'React'} className={'technology-icon'} name={'React'}/>
+                        <Icon  src={Django} alt={'Django'} className={'technology-icon'} name={'Django'}/>
+                        <Icon  src={Vite} alt={'Vite'} className={'technology-icon'} name={'Vite'}/>
+                        <Icon  src={Node} alt={'Node'} className={'technology-icon'} name={'Node.js'}/>
+                        <Icon  src={Firebase} alt={'Firebase'} className={'technology-icon'} name={'Firebase'}/>
+                        <Icon  src={Deno} alt={'Deno'} className={'technology-icon'} name={'Deno'}/>
+                        <Icon src={Cloudinary} alt={'Cloudinary'} className={'technology-icon'} name={'Cloudinary'}/>
                     </div>
                 </div>
             </div>
