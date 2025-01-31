@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import './styles/App.css';
 import Ground from './assets/backgrounds/hills/ground.svg';
 import Hill1 from './assets/backgrounds/hills/hill_1.svg';
@@ -45,19 +46,46 @@ import ParallaxHill from './components/ParallaxHill.tsx';
 import Icon from './components/Icon.tsx';
 
 function App() {
+    useEffect(() => {
+        const experienceItems = document.querySelectorAll('.experience-item');
+        const timelineMarks = document.querySelectorAll('.timeline-mark');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                const index = Array.from(experienceItems).indexOf(entry.target);
+                if (entry.isIntersecting) {
+                    timelineMarks.forEach(mark => mark.classList.remove('highlight'));
+                    experienceItems.forEach(item => item.classList.remove('highlight'));
+                    timelineMarks[index].classList.add('highlight');
+                    experienceItems[index].classList.add('highlight');
+                }
+            });
+        }, { threshold: 0.5, rootMargin: '-25% 0px -25% 0px' });
+
+        experienceItems.forEach((item) => {
+            observer.observe(item);
+        });
+
+        return () => {
+            experienceItems.forEach((item) => {
+                observer.unobserve(item);
+            });
+        };
+    }, []);
+
     return (
         <>
-        <div className={'landscape'}>
-            <div className={'hill-wrapper'}>
-                <ParallaxHill src={Ground} alt={'Ground'} className={'hill ground'} speed={0.1} />
-                <ParallaxHill src={Hill1} alt={'Hill1'} className={'hill hill-1'} speed={0.2} />
-                <ParallaxHill src={Hill2} alt={'Hill2'} className={'hill hill-2'} speed={0.3} />
-                <ParallaxHill src={Hill3} alt={'Hill3'} className={'hill hill-3'} speed={0.4} />
-                <ParallaxHill src={Hill4} alt={'Hill4'} className={'hill hill-4'} speed={0.5} />
-                <ParallaxHill src={Hill5} alt={'Hill5'} className={'hill hill-5'} speed={0.6} />
-                <ParallaxHill src={Hill6} alt={'Hill6'} className={'hill hill-6'} speed={0.7} />
+            <div className={'landscape'}>
+                <div className={'hill-wrapper'}>
+                    <ParallaxHill src={Ground} alt={'Ground'} className={'hill ground'} speed={0.1} />
+                    <ParallaxHill src={Hill1} alt={'Hill1'} className={'hill hill-1'} speed={0.2} />
+                    <ParallaxHill src={Hill2} alt={'Hill2'} className={'hill hill-2'} speed={0.3} />
+                    <ParallaxHill src={Hill3} alt={'Hill3'} className={'hill hill-3'} speed={0.4} />
+                    <ParallaxHill src={Hill4} alt={'Hill4'} className={'hill hill-4'} speed={0.5} />
+                    <ParallaxHill src={Hill5} alt={'Hill5'} className={'hill hill-5'} speed={0.6} />
+                    <ParallaxHill src={Hill6} alt={'Hill6'} className={'hill hill-6'} speed={0.7} />
+                </div>
             </div>
-        </div>
             <div className={'header card'}>
                 <img className={'my-photo'} src={Me} alt={'Fraser W Levack'}/>
                 <div className={'header-content'}>
@@ -94,7 +122,6 @@ function App() {
                     </div>
                     <div className={'line-break'}/>
                     <div className={'info-tag languages'}>
-                        {/*<p><strong><sub> Proficient in: </sub></strong></p>*/}
                         <Icon src={Typescript} alt={'Typescript'} className={'language-icon'} name={'TypeScript'}/>
                         <Icon src={Python} alt={'Python'} className={'language-icon'} name={'Python'}/>
                         <Icon src={Java} alt={'Java'} className={'language-icon'} name={'Java'}/>
@@ -104,7 +131,6 @@ function App() {
                         <Icon src={CSS} alt={'CSS'} className={'language-icon'} name={'CSS'}/>
                     </div>
                     <div className={'info-tag technologies'}>
-                        {/*<p><strong><sub> Technologies I use: </sub></strong></p>*/}
                         <Icon  src={ReactIcon} alt={'React'} className={'technology-icon'} name={'React'}/>
                         <Icon  src={Django} alt={'Django'} className={'technology-icon'} name={'Django'}/>
                         <Icon  src={Vite} alt={'Vite'} className={'technology-icon'} name={'Vite'}/>
@@ -118,7 +144,6 @@ function App() {
             <div className={'experience card'}>
                 <div className={'vertical-timeline'}>
                     <div className={'timeline-line'}>
-                        {/*    add timeline marks three to begin with */}
                         <div className={'timeline-mark'}/>
                         <div className={'timeline-mark'}/>
                         <div className={'timeline-mark'}/>

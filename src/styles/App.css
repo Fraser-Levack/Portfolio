@@ -193,7 +193,7 @@ html, body {
     border: 2px solid #ffffff;
 
     position: relative;
-
+    transition: background-color 1s ease, border-color 1s ease;
 }
 
 /* Gradient animation */
@@ -207,23 +207,86 @@ html, body {
 }
 
 .timeline-line div:nth-child(1) {
-  transform: translate(-30%, 5rem);
+  transform: translate(-35%, 5rem);
 }
 
 .timeline-line div:nth-child(2) {
-  transform: translate(-30%, 18rem);
+  transform: translate(-35%, 18rem);
 }
 
 .timeline-line div:nth-child(3) {
-  transform: translate(-30%, 31rem);
+  transform: translate(-35%, 31rem);
 }
+
+
 
 .experience-header {
   margin: 0 5rem 1.5rem 5rem;
 }
 
+.timeline-mark.highlight {
+  background-color: #ffffff;
+  border-color: #1a1813;
+}
+
 .experience-item {
+  position: relative; /* Required for pseudo-elements */
   margin: 0 0 1.5rem 0;
+  background-color: transparent;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  padding: 0.5rem; /* Inner padding for content */
+  z-index: 1; /* Ensure content is above the pseudo-elements */
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0turn;
+  inherits: false;
+}
+
+.experience-item:before {
+  content: '';
+  opacity: 0;
+  transition: opacity 1s ease;
+  position: absolute;
+  top: -2px; /* Border width */
+  left: -2px; /* Border width */
+  right: -2px; /* Border width */
+  bottom: -2px; /* Border width */
+  background:
+  conic-gradient(
+          from var(--gradient-angle),
+          #1a1813 0%,
+          #aaaaaa 37%,
+          #ffffff 30%,
+          #aaaaaa 33%,
+          #1a1813 40%,
+          #1a1813 50%,
+          #aaaaaa 77%,
+          #ffffff 80%,
+          #aaaaaa 83%,
+          #1a1813 90%
+  );
+  border-radius: 1rem; /* Match the border-radius of the parent */
+  mask:
+          linear-gradient(to bottom, #fff, #fff) content-box, /* Mask for the content area */
+          linear-gradient(to bottom, #fff, #fff); /* Mask for the border area */
+  -webkit-mask-composite: xor; /* Exclude the content area from the border */
+  mask-composite: exclude; /* Exclude the content area from the border */
+  padding: 2px; /* Border width */
+
+  animation: 2s gradient-angle infinite linear;
+}
+
+@keyframes gradient-angle {
+  to {
+    --gradient-angle: 1turn;
+  }
+}
+
+.experience-item.highlight:before {
+  opacity: 1;
 }
 
 .experience-sub-info {
