@@ -225,11 +225,29 @@ function App() {
                         <img src={Surf} alt={'surf'} className={'surf-image'}/>
                     </div>
                 </div>
-                <div className={'projects-content'}>
-                    <Project title={'Design for Displacement'} image={Dfd} growDirection={'left top'}/>
-                    <Project title={'Off Axis Gigs'} image={OffAxis} growDirection={'right top'}/>
-                    <Project title={'DjangoJam'} image={DjangoJam} growDirection={'left bottom'}/>
-                    <Project title={'CPaint'} image={Cpaint} growDirection={'right bottom'}/>
+                < div className={'projects-content'}>
+                    <Project title={'Design for Displacement'} image={Dfd} growDirection={'left top'}>
+                    <p> A modern stylistic website, with in built Content Management System (CMS). Made using
+                        <strong> Typescript </strong> and <strong>React</strong> with a real time
+                        database management system using <strong>Firebase</strong> and <strong>Cloudinary</strong> for
+                        images and other media.</p>
+                    </Project>
+                    <Project title={'Off Axis Gigs'} image={OffAxis} growDirection={'right top'}>
+                    <p> A working all in one ticketing system for national gigs. Musical artists can sign up,
+                        create profiles, set up and sell gigs. A "batteries included" web application
+                        made with <strong> Python</strong>'s <strong>Django</strong> framework as well
+                        as <strong>JavaScript</strong> for client side rendering.</p>
+                    </Project>
+                    <Project title={'DjangoJam'} image={DjangoJam} growDirection={'left bottom'}>
+                    <p> Another musical <strong>Django</strong> based web application. DjangoJam allows a
+                        users to create a musical tunes, from a on site piano keyboard. A user can then share, comment on and
+                        like tunes made by themselves or other users. KeyBoard functionality was made using <strong>JavaScript</strong>.</p>
+                    </Project>
+                    <Project title={'CPaint'} image={Cpaint} growDirection={'right bottom'}>
+                    <p> A drawing application written entirely in <strong>C</strong>. CPaint come with three colours,
+                        an undo and a clear function. On screen rendering is done by the GPU using <strong>OpenGL</strong> this
+                        allow for a super responsive and efficient application.</p>
+                    </Project>
                     <div className={'sudo-project'}/>
                     <div className={'sudo-project'}/>
                     <div className={'sudo-project'}/>

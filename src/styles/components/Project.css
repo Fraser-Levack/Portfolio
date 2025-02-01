@@ -115,6 +115,18 @@
     opacity: 1;
 }
 
+.hidden-content {
+    display: none;
+}
+
+.project-content {
+    padding: 2rem;
+}
+
+.project-content strong {
+    color: #809BAD;
+}
+
 @media (max-width: 768px) {
     .project {
         width: 15rem;
@@ -151,7 +163,11 @@
     }
 
     .project.expanded .project-image {
-        width: 90%;
-        height: 10rem;
+        display: none;
+    }
+
+    .project.expanded .project-content {
+        padding: 0.5rem;
+        font-size: 0.8rem;
     }
 }
