@@ -226,10 +226,14 @@ function App() {
                     </div>
                 </div>
                 <div className={'projects-content'}>
-                    <Project title={'Design for Displacement'} image={Dfd}/>
-                    <Project title={'Off Axis Gigs'} image={OffAxis}/>
-                    <Project title={'DjangoJam'} image={DjangoJam}/>
-                    <Project title={'CPaint'} image={Cpaint}/>
+                    <Project title={'Design for Displacement'} image={Dfd} growDirection={'left top'}/>
+                    <Project title={'Off Axis Gigs'} image={OffAxis} growDirection={'right top'}/>
+                    <Project title={'DjangoJam'} image={DjangoJam} growDirection={'left bottom'}/>
+                    <Project title={'CPaint'} image={Cpaint} growDirection={'right bottom'}/>
+                    <div className={'sudo-project'}/>
+                    <div className={'sudo-project'}/>
+                    <div className={'sudo-project'}/>
+                    <div className={'sudo-project'}/>
                 </div>
             </div>
             <div className={'blue-background'}>

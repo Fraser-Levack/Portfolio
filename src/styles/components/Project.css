@@ -1,12 +1,47 @@
 .project {
-    position: relative;
-    width: 25rem;
-    min-height: 10rem;
+    position: absolute; /* Ensure the project is positioned relative to its grid cell */
+    width: 24.5rem;
+    height: 20rem;
     border: 2px solid #ffffff13;
     border-radius: 1rem;
     text-align: center;
     padding: 0.2rem;
     box-sizing: border-box;
+    transition: all 0.5s ease;
+    z-index: 1; /* Default z-index */
+    cursor: pointer;
+}
+
+.project.left.top {
+    top: 0; /* Position it at the top of its grid cell */
+    left: 0; /* Position it at the left of its grid cell */
+}
+
+.project.right.top {
+    top: 0; /* Position it at the top of its grid cell */
+    right: 0; /* Position it at the right of its grid cell */
+}
+
+.project.left.bottom {
+    bottom: 0; /* Position it at the bottom of its grid cell */
+    left: 0; /* Position it at the left of its grid cell */
+}
+
+.project.right.bottom {
+    bottom: 0; /* Position it at the bottom of its grid cell */
+    right: 0; /* Position it at the right of its grid cell */
+}
+
+.project.expanded {
+    position: absolute; /* Take the expanded project out of the normal flow */
+    z-index: 10; /* Ensure it appears above other projects */
+    background: #1a1a1a; /* Ensure the background covers other content */
+    border: 2px solid #ffffff; /* Optional: Add a border for better visibility */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Optional: Add a shadow for depth */
+    color: #ffffff;
+    width:51rem;
+    height: 41rem;
+    max-height: 41rem;
 }
 
 .project-title {
@@ -16,12 +51,19 @@
 
 .project-image {
     padding: 1rem;
-    width:90%;
+    width: 90%;
+    max-width: 22.5rem;
     height: 10rem;
     object-fit: cover;
     border-radius: 2rem;
+    transition: all 0.5s ease;
 }
 
+.project.expanded .project-image {
+    width: 45rem;
+    height: 20rem;
+    max-width: 45rem;
+}
 
 @property --gradient-angle {
     syntax: "<angle>";
@@ -32,7 +74,7 @@
 .project:before {
     content: '';
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: all 0.5s ease;
     position: absolute;
     top: -2px; /* Border width */
     left: -2px; /* Border width */
@@ -73,13 +115,43 @@
     opacity: 1;
 }
 
-
 @media (max-width: 768px) {
     .project {
         width: 15rem;
+        height: 20rem;
     }
 
     .project-title {
         font-size: 1rem;
+    }
+
+    .project.left.top {
+        top: 0;
+        left: 0;
+    }
+
+    .project.right.top {
+        top: 21rem;
+        left: 0;
+    }
+
+    .project.left.bottom {
+        top: 42rem;
+        left: 0;
+    }
+
+    .project.right.bottom {
+        top: 63rem;
+        left: 0;
+    }
+
+    .project.expanded {
+        width: 15rem;
+        height: 20rem;
+    }
+
+    .project.expanded .project-image {
+        width: 90%;
+        height: 10rem;
     }
 }

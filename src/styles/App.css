@@ -379,7 +379,15 @@ html, body {
 .projects-content {
   display: grid;
   gap: 1rem;
-  grid-template-columns: auto auto;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  position: relative; /* Ensure the grid container is the positioning context */
+}
+
+.sudo-project {
+  position: relative;
+  width: 25rem;
+  height: 20rem;
+  opacity: 0;
 }
 
 
@@ -505,7 +513,7 @@ html, body {
 
   .blue-background {
     top: 160vh;
-    height: 150vh;
+    height: 175vh;
   }
 
   .projects {
