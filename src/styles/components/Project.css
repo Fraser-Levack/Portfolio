@@ -1,9 +1,12 @@
 .project {
+    position: relative;
     width: 25rem;
     min-height: 10rem;
     border: 2px solid #ffffff13;
     border-radius: 1rem;
     text-align: center;
+    padding: 0.2rem;
+    box-sizing: border-box;
 }
 
 .project-title {
@@ -18,6 +21,58 @@
     object-fit: cover;
     border-radius: 2rem;
 }
+
+
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0turn;
+    inherits: false;
+}
+
+.project:before {
+    content: '';
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    top: -2px; /* Border width */
+    left: -2px; /* Border width */
+    right: -2px; /* Border width */
+    bottom: -2px; /* Border width */
+    background:
+            conic-gradient(
+                    from var(--gradient-angle),
+                    #1a1813 0%,
+                    #aaaaaa 37%,
+                    #ffffff 30%,
+                    #aaaaaa 33%,
+                    #1a1813 40%,
+                    #1a1813 50%,
+                    #aaaaaa 77%,
+                    #ffffff 80%,
+                    #aaaaaa 83%,
+                    #1a1813 90%
+            );
+    border-radius: 1rem; /* Match the border-radius of the parent */
+    mask:
+            linear-gradient(to bottom, #fff, #fff) content-box, /* Mask for the content area */
+            linear-gradient(to bottom, #fff, #fff); /* Mask for the border area */
+    -webkit-mask-composite: xor; /* Exclude the content area from the border */
+    mask-composite: exclude; /* Exclude the content area from the border */
+    padding: 2px; /* Border width */
+
+    animation: 2s gradient-angle infinite linear;
+}
+
+@keyframes gradient-angle {
+    to {
+        --gradient-angle: 1turn;
+    }
+}
+
+.project:hover:before {
+    opacity: 1;
+}
+
 
 @media (max-width: 768px) {
     .project {
