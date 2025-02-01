@@ -41,9 +41,20 @@ import Firebase from './assets/icons/technologies/firebase.svg';
 import Deno from './assets/icons/technologies/deno.svg';
 import Cloudinary from './assets/icons/technologies/cloudinary.svg';
 
+import University from './assets/backgrounds/Uni_Silhouette.svg';
+
+import Surf from './assets/images/surf.jpg';
+
 import ParallaxHill from './components/ParallaxHill.tsx';
 
 import Icon from './components/Icon.tsx';
+
+import Project from './components/Project.tsx';
+
+import Dfd from './assets/images/projects/dfd.webp';
+import OffAxis from './assets/images/projects/OffAxis.webp';
+import DjangoJam from './assets/images/projects/DjangoJam.webp';
+import Cpaint from './assets/images/projects/cpaint.webp';
 
 function App() {
     useEffect(() => {
@@ -90,7 +101,7 @@ function App() {
                 <img className={'my-photo'} src={Me} alt={'Fraser W Levack'}/>
                 <div className={'header-content'}>
                     <h1 className={'my-name'}> Fraser Levack </h1>
-                    <h3 className={'my-title'}> Software Developer </h3>
+                    <h3 className={'my-title'}> Full Stack Developer </h3>
                     <div className={'info-tag'}>
                         <img src={MapPin} alt={'Location'} className={'dark'}/>
                         <img src={MapPinLight} alt={'Location'} className={'light'}/>
@@ -185,6 +196,25 @@ function App() {
                     </div>
                 </div>
 
+            </div>
+            <div className={'university-scape'}>
+                <ParallaxHill src={University} alt={'University'} className={'university'} speed={0.1} />
+            </div>
+            <div className={'projects card'}>
+                <div className={'projects-top'} >
+                    <div>
+                        <h1 className={'projects-header'}> My Work & Projects </h1>
+                        <img src={Surf} alt={'surf'} className={'surf-image'}/>
+                    </div>
+                </div>
+                <div className={'projects-content'}>
+                    <Project title={'Design for Displacement'} image={Dfd}/>
+                    <Project title={'Off Axis Gigs'} image={OffAxis}/>
+                    <Project title={'DjangoJam'} image={DjangoJam}/>
+                    <Project title={'CPaint'} image={Cpaint}/>
+                </div>
+            </div>
+            <div className={'blue-background'}>
             </div>
         </>
     );

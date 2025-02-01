@@ -1,0 +1,29 @@
+.project {
+    width: 25rem;
+    min-height: 10rem;
+    border: 2px solid #ffffff13;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.project-title {
+    font-size: 1.5rem;
+}
+
+.project-image {
+    padding: 1rem;
+    width:90%;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+
+@media (max-width: 768px) {
+    .project {
+        width: 15rem;
+    }
+
+    .project-title {
+        font-size: 1rem;
+    }
+}

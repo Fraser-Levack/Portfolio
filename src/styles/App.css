@@ -2,7 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 300vh;
+  height: 400vh;
 }
 
 .landscape {
@@ -17,6 +17,33 @@ html, body {
 
 .landscape::-webkit-scrollbar {
   display: none;  /* Chrome, Safari, Opera */
+}
+
+.university-scape {
+  position: relative;
+  width: 100%;
+  height: 130vh;
+  top: 100vh;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  overflow: hidden;
+}
+
+.university-scape::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
+}
+
+.university {
+    position: absolute;
+    bottom: 0;
+}
+
+.blue-background {
+  position: relative;
+  background-color: #5A707A;
+  height: 100vh;
+  top: 100vh;
+  z-index: 7;
 }
 
 .hill-wrapper {
@@ -173,7 +200,7 @@ html, body {
   position: relative;
   margin: 0 5rem;
   width: 3px;
-  height: 100vh;
+  height: 125vh;
   background: repeating-linear-gradient(
           to top,
           #ffffff 0%,
@@ -207,15 +234,14 @@ html, body {
 }
 
 .timeline-line div:nth-child(1) {
-  transform: translate(-35%, 5rem);
+  transform: translate(-35%, 6.5rem);
 }
 
 .timeline-line div:nth-child(2) {
-  transform: translate(-35%, 18rem);
+  transform: translate(-35%, 22.5rem);
 }
-
 .timeline-line div:nth-child(3) {
-  transform: translate(-35%, 31rem);
+  transform: translate(-35%, 38.5rem);
 }
 
 
@@ -301,6 +327,44 @@ html, body {
     border-left: 2px solid #ffffff;
     border-right: 2px solid #ffffff;
 }
+
+.projects {
+  position: absolute;
+  top: 350%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  z-index: 8;
+
+  color: #1a1813;
+}
+
+.projects-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.surf-image {
+  width: 40rem;
+  height: 20rem;
+  border-radius: 2rem;
+  object-fit: cover;
+  object-position: 0 10%;
+}
+
+.projects-header {
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+}
+
+.projects-content {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: auto auto;
+}
+
 
 /* Media Queries for Responsive Design */
 
@@ -408,6 +472,44 @@ html, body {
 
   .language-icon, .technology-icon {
     transform: scale(0.7);
+  }
+
+  .university-scape {
+    position: relative;
+    top: 160vh;
+    bottom: 0;
+  }
+
+  .university-scape img {
+    position: relative;
+    right: 10vh;
+    top: -20vh;
+  }
+
+  .blue-background {
+    top: 160vh;
+    height: 150vh;
+  }
+
+  .projects {
+    top: 450%;
+    width: 15rem;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .projects-header{
+    color: #1a1813;
+    font-size: 1.5rem;
+  }
+
+  .surf-image {
+    width: 15rem;
+    height: 10rem;
+  }
+
+  .projects-content{
+    grid-template-columns: auto;
   }
 }
 
