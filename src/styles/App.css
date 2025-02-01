@@ -198,6 +198,10 @@ html, body {
   transition: opacity 0.5s ease;
 }
 
+.about-me-link {
+  cursor: pointer;
+}
+
 .hidden-info .about-me-text {
   opacity: 0;
 }
