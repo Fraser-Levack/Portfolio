@@ -396,7 +396,7 @@ html, body {
     width: 15rem;
     height: 50rem;
     padding: 1rem;
-    max-height: none;
+    max-height: 110%;
   }
 
   .experience {
