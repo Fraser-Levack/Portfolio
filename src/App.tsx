@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './styles/App.css';
 import Ground from './assets/backgrounds/hills/ground.svg';
 import Hill1 from './assets/backgrounds/hills/hill_1.svg';
@@ -17,6 +17,7 @@ import LinkedIn from './assets/icons/linkedin.svg';
 import Mail from './assets/icons/mail.svg';
 import Phone from './assets/icons/phone.svg';
 import TextFile from './assets/icons/file-text.svg'
+import Smile from './assets/icons/smile.svg';
 
 import MapPinLight from './assets/icons/map-pin-light.svg';
 import GitHubLight from './assets/icons/github-light.svg';
@@ -24,6 +25,7 @@ import LinkedInLight from './assets/icons/linkedin-light.svg';
 import MailLight from './assets/icons/mail-light.svg';
 import PhoneLight from './assets/icons/phone-light.svg';
 import TextFileLight from './assets/icons/file-text-light.svg'
+import SmileLight from './assets/icons/smile-light.svg';
 
 import Typescript from './assets/icons/languages/typescript.svg';
 import Python from './assets/icons/languages/python.svg';
@@ -57,6 +59,12 @@ import DjangoJam from './assets/images/projects/DjangoJam.webp';
 import Cpaint from './assets/images/projects/cpaint.webp';
 
 function App() {
+    const [aboutMe, setAboutMe] = useState(false);
+
+    function handleAboutMe() {
+        setAboutMe(!aboutMe);
+    }
+
     useEffect(() => {
         const experienceItems = document.querySelectorAll('.experience-item');
         const timelineMarks = document.querySelectorAll('.timeline-mark');
@@ -130,8 +138,17 @@ function App() {
                             <Icon src={TextFile} alt={'CV'} className={'social-link dark'} name={'My CV'}/>
                             <Icon src={TextFileLight} alt={'CV'} className={'social-link light'} name={'My CV'}/>
                         </a>
+                        <div className={'about-me-link'} onClick={handleAboutMe}>
+                            <Icon src={Smile} alt={'About Me'} className={'social-link dark'} name={'About Me'}/>
+                            <Icon src={SmileLight} alt={'About Me'} className={'social-link light'} name={'About Me'}/>
+                        </div>
                     </div>
                     <div className={'line-break'}/>
+                    <div className={`${aboutMe ? '' : 'hidden-info'}`}>
+                        <p className={'about-me-text'}> Hi I am a full stack developer from scotland. I like coming
+                            up with interesting solutions and I have a keen eye for detailed designs.</p>
+                    </div>
+                    <div className={`icon-info ${aboutMe ? 'hidden-info' : ''}`}>
                     <div className={'info-tag languages'}>
                         <Icon src={Typescript} alt={'Typescript'} className={'language-icon'} name={'TypeScript'}/>
                         <Icon src={Python} alt={'Python'} className={'language-icon'} name={'Python'}/>
@@ -149,6 +166,7 @@ function App() {
                         <Icon  src={Firebase} alt={'Firebase'} className={'technology-icon'} name={'Firebase'}/>
                         <Icon  src={Deno} alt={'Deno'} className={'technology-icon'} name={'Deno'}/>
                         <Icon src={Cloudinary} alt={'Cloudinary'} className={'technology-icon'} name={'Cloudinary'}/>
+                    </div>
                     </div>
                 </div>
             </div>

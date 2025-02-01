@@ -167,6 +167,11 @@ html, body {
   }
 }
 
+.icon-info {
+  position: relative;
+  top: -7rem;
+}
+
 .info-tag.languages {
   gap: 0;
 }
@@ -177,10 +182,24 @@ html, body {
 
 .language-icon {
   transform: scale(0.8);
+  transition: opacity 0.5s ease;
 }
 
 .technology-icon {
   transform: scale(0.8);
+  transition: opacity 0.5s ease;
+}
+
+.hidden-info .language-icon,.hidden-info .technology-icon {
+  opacity: 0;
+}
+
+.about-me-text {
+  transition: opacity 0.5s ease;
+}
+
+.hidden-info .about-me-text {
+  opacity: 0;
 }
 
 .experience {
@@ -243,8 +262,6 @@ html, body {
 .timeline-line div:nth-child(3) {
   transform: translate(-35%, 38.5rem);
 }
-
-
 
 .experience-header {
   margin: 0 5rem 1.5rem 5rem;
