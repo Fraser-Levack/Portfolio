@@ -1,0 +1,36 @@
+.project-btn{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem;
+
+    width: fit-content;
+    height: 1.5rem;
+    padding: 0.2rem;
+    border-radius: 1rem;
+    background-color: #ffffff10;
+    border: 2px solid #ffffff13;
+    z-index: 7;
+
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.project-btn:hover{
+    background-color: #ffffff13;
+    border-color: #ffffff;
+}
+
+@media (max-width: 768px){
+    .project-btn{
+        font-size: 0.5rem;
+        height: 1rem;
+    }
+
+    .project-btn img{
+        transform: scale(0.5);
+    }
+}

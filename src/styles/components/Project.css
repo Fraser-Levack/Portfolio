@@ -105,6 +105,12 @@
     animation: 2s gradient-angle infinite linear;
 }
 
+.project-links {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.5rem;
+}
+
 @keyframes gradient-angle {
     to {
         --gradient-angle: 1turn;

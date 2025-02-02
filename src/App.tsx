@@ -226,24 +226,28 @@ function App() {
                     </div>
                 </div>
                 < div className={'projects-content'}>
-                    <Project title={'Design for Displacement'} image={Dfd} growDirection={'left top'}>
+                    <Project title={'Design for Displacement'} image={Dfd} growDirection={'left top'}
+                             externalLink={'https://designfordisplacement.info/'}
+                             githubLink={'https://github.com/Fraser-Levack/Design-for-Displacement'}>
                     <p> A modern stylistic website, with in built Content Management System (CMS). Made using
                         <strong> Typescript </strong> and <strong>React</strong> with a real time
                         database management system using <strong>Firebase</strong> and <strong>Cloudinary</strong> for
                         images and other media.</p>
                     </Project>
-                    <Project title={'Off Axis Gigs'} image={OffAxis} growDirection={'right top'}>
-                    <p> A working all in one ticketing system for national gigs. Musical artists can sign up,
-                        create profiles, set up and sell gigs. A "batteries included" web application
+                    <Project title={'Off Axis Gigs'} image={OffAxis} growDirection={'right top'}
+                             externalLink={'https://sh20.pythonanywhere.com/'}>
+                    <p> A working all in one ticketing system for national gigs. A "batteries included" web application
                         made with <strong> Python</strong>'s <strong>Django</strong> framework as well
                         as <strong>JavaScript</strong> for client side rendering.</p>
                     </Project>
-                    <Project title={'DjangoJam'} image={DjangoJam} growDirection={'left bottom'}>
+                    <Project title={'DjangoJam'} image={DjangoJam} growDirection={'left bottom'}
+                             githubLink={'https://github.com/Team-5A/DjangoJam'}>
                     <p> Another musical <strong>Django</strong> based web application. DjangoJam allows a
-                        users to create a musical tunes, from a on site piano keyboard. A user can then share, comment on and
-                        like tunes made by themselves or other users. KeyBoard functionality was made using <strong>JavaScript</strong>.</p>
+                        users to create a musical tunes, from a on site piano keyboard.
+                        KeyBoard functionality was made using <strong>JavaScript</strong>.</p>
                     </Project>
-                    <Project title={'CPaint'} image={Cpaint} growDirection={'right bottom'}>
+                    <Project title={'CPaint'} image={Cpaint} growDirection={'right bottom'}
+                             githubLink={'https://github.com/Fraser-Levack/CPaint'}>
                     <p> A drawing application written entirely in <strong>C</strong>. CPaint come with three colours,
                         an undo and a clear function. On screen rendering is done by the GPU using <strong>OpenGL</strong> this
                         allow for a super responsive and efficient application.</p>
