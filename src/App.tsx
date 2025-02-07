@@ -15,7 +15,7 @@ import Scot from './assets/icons/scot.svg';
 import GitHub from './assets/icons/github.svg';
 import LinkedIn from './assets/icons/linkedin.svg';
 import Mail from './assets/icons/mail.svg';
-import Phone from './assets/icons/phone.svg';
+// import Phone from './assets/icons/phone.svg';
 import TextFile from './assets/icons/file-text.svg'
 import Smile from './assets/icons/smile.svg';
 
@@ -23,7 +23,7 @@ import MapPinLight from './assets/icons/map-pin-light.svg';
 import GitHubLight from './assets/icons/github-light.svg';
 import LinkedInLight from './assets/icons/linkedin-light.svg';
 import MailLight from './assets/icons/mail-light.svg';
-import PhoneLight from './assets/icons/phone-light.svg';
+// import PhoneLight from './assets/icons/phone-light.svg';
 import TextFileLight from './assets/icons/file-text-light.svg'
 import SmileLight from './assets/icons/smile-light.svg';
 
@@ -129,10 +129,6 @@ function App() {
                         <a href="mailto:flevack28@gmail.com">
                             <Icon src={Mail} alt={'Email'} className={'social-link dark'} name={'Email'}/>
                             <Icon src={MailLight} alt={'Email'} className={'social-link light'} name={'Email'}/>
-                        </a>
-                        <a href="tel:07724349134">
-                            <Icon src={Phone} alt={'Phone'} className={'social-link dark'} name={'Phone'}/>
-                            <Icon src={PhoneLight} alt={'Phone'} className={'social-link light'} name={'Phone'}/>
                         </a>
                         <a href="/documents/Fraser_W_Levack_CV_2025.pdf" target="_blank" rel="noopener noreferrer" type="application/pdf">
                             <Icon src={TextFile} alt={'CV'} className={'social-link dark'} name={'My CV'}/>
