@@ -572,7 +572,11 @@ html, body {
 }
 
 /* For screens larger than 1024px (desktops) */
-@media (min-width: 1024px) {
+@media (min-width: 1366px) {
+  html {
+    font-size: 110%;
+  }
+
   .header {
     width: 50rem;
     gap: 5rem;
