@@ -94,6 +94,27 @@ function App() {
 
     return (
         <>
+            {/* Redesign marquee: repeated text scrolling left infinitely */}
+            <div className="redesign-banner" aria-hidden="false">
+                {/* Screen-reader friendly text; announce once */}
+                <span className="sr-only" aria-live="polite">Website under current redesign</span>
+                <div className="marquee" aria-hidden="true">
+                    <div className="marquee__inner">
+                        {/* first copy */}
+                        <span className="marquee__item">Website under current redesign — </span>
+                        <span className="marquee__item">Website under current redesign — </span>
+                        <span className="marquee__item">Website under current redesign — </span>
+                        <span className="marquee__item">Website under current redesign — </span>
+                        <span className="marquee__item">Website under current redesign — </span>
+                        {/* duplicate copy immediately after for seamless loop */}
+                        <span className="marquee__item">Website under current redesign — </span>
+                        <span className="marquee__item">Website under current redesign — </span>
+                        <span className="marquee__item">Website under current redesign — </span>
+                        <span className="marquee__item">Website under current redesign — </span>
+                        <span className="marquee__item">Website under current redesign — </span>
+                    </div>
+                </div>
+            </div>
             <div className={'landscape'}>
                 <div className={'hill-wrapper'}>
                     <ParallaxHill src={Ground} alt={'Ground'} className={'hill ground'} speed={0.1} />

@@ -5,6 +5,73 @@ html, body {
   height: 400vh;
 }
 
+/* Big yellow redesign banner */
+.redesign-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #FFD400; /* bright yellow */
+  color: #1a1813; /* dark text for contrast */
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.6rem; /* will be scaled on small devices via media queries */
+  padding: 1rem 0.5rem;
+  z-index: 9999; /* ensure it's on top */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Slightly larger banner on wide screens */
+@media (min-width: 1024px) {
+  .redesign-banner { font-size: 2.2rem; padding: 1.25rem 0; }
+}
+
+/* Reduce size on very small screens */
+@media (max-width: 420px) {
+  .redesign-banner { font-size: 1.2rem; padding: 0.75rem 0; }
+}
+
+/* Marquee (infinite left scroll) */
+.redesign-banner { overflow: hidden; }
+.marquee {
+  display: block;
+  width: 100%;
+  background: transparent; /* banner background already defined */
+}
+.marquee__inner {
+  display: inline-flex;
+  gap: 1.25rem;
+  align-items: center;
+  white-space: nowrap; /* ensure single row */
+  padding: 0.6rem 1rem;
+  transform: translate3d(0,0,0);
+  animation: marquee-left 16s linear infinite; /* faster, continuous */
+}
+.marquee__item {
+  font-weight: 900;
+  color: #1a1813;
+  font-size: 2.4rem; /* larger text */
+}
+
+@keyframes marquee-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__inner { animation: none; }
+}
+
+/* Screen-reader only utility */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
+  }
+
 .landscape {
   position: relative;
   width: 100%;
