@@ -130,7 +130,7 @@ function App() {
                 <img className={'my-photo'} src={Me} alt={'Fraser W Levack'}/>
                 <div className={'header-content'}>
                     <h1 className={'my-name'}> Fraser Levack </h1>
-                    <h3 className={'my-title'}> Full Stack Developer </h3>
+                    <h3 className={'my-title'}> Software Engineer </h3>
                     <div className={'info-tag'}>
                         <img src={MapPin} alt={'Location'} className={'dark'}/>
                         <img src={MapPinLight} alt={'Location'} className={'light'}/>
