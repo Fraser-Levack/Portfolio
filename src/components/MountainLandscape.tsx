@@ -1,0 +1,124 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import SnowOverlay from "./SnowOverlay";
+
+const imgZLevel1 = "/mountainLandscape/Z_level_1.svg";
+const imgZLevel2 = "/mountainLandscape/Z_level_2.svg";
+const imgZLevel3 = "/mountainLandscape/Z_level_3.svg";
+const imgZLevel4 = "/mountainLandscape/Z_level_4.svg";
+const imgZLevel5 = "/mountainLandscape/Z_level_5.svg";
+const imgZLevel6 = "/mountainLandscape/Z_level_6.svg";
+const imgZLevel7 = "/mountainLandscape/Z_level_7.svg";
+const imgZLevel8 = "/mountainLandscape/Z_level_8.svg";
+// Ensure this path matches your file structure exactly
+const imgTitle = "/mountainLandscape/FRASER W LEVACK.svg";
+
+export default function MountainLandscape() {
+  // 1. Create Refs
+  const refLayer1 = useRef<HTMLDivElement>(null);
+  const refLayer2 = useRef<HTMLDivElement>(null);
+  const refLayer3 = useRef<HTMLDivElement>(null);
+  const refTitle = useRef<HTMLDivElement>(null); // NEW: Ref for the Title
+  const refLayer4 = useRef<HTMLDivElement>(null);
+  const refLayer5 = useRef<HTMLDivElement>(null);
+  const refLayer6 = useRef<HTMLDivElement>(null);
+  const refLayer7 = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      // Update transforms
+      if (refLayer1.current) refLayer1.current.style.transform = `translateY(${scrollY * 0.6}px)`;
+      if (refLayer2.current) refLayer2.current.style.transform = `translateY(${scrollY * 0.55}px)`;
+      if (refLayer3.current) refLayer3.current.style.transform = `translateY(${scrollY * 0.5}px)`;
+      
+      // NEW: Title logic
+      // Speed is 0.45 (Between Layer 3's 0.5 and Layer 4's 0.4)
+      if (refTitle.current) refTitle.current.style.transform = `translateY(${scrollY * 0.85}px)`;
+
+      if (refLayer4.current) refLayer4.current.style.transform = `translateY(${scrollY * 0.4}px)`;
+      if (refLayer5.current) refLayer5.current.style.transform = `translateY(${scrollY * 0.3}px)`;
+      if (refLayer6.current) refLayer6.current.style.transform = `translateY(${scrollY * 0.2}px)`;
+      if (refLayer7.current) refLayer7.current.style.transform = `translateY(${scrollY * 0.15}px)`;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial call
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const containerClasses = "w-full min-w-full h-full md:h-auto md:aspect-[1728/1117] translate-y-[15.2%]";
+  const layerClasses = "absolute left-[-0.1%] w-[99.9%] will-change-transform ease-out";
+
+  return (
+    <div className="bg-gradient-to-b from-[#529AE4] to-[79.327%] to-white via-[#99D2F0] via-[67.788%] relative h-[60vh] md:h-screen w-screen overflow-hidden flex items-end justify-center">
+      
+      <div className="fixed top-0 left-0 w-screen h-screen pointer-events-none max-md:z-[100] md:z-[60]">
+         <SnowOverlay />
+      </div>
+
+      {/* BACKGROUND GROUP */}
+      <div className={`relative z-0 ${containerClasses}`}>
+        
+        {/* Layer 1 */}
+        <div ref={refLayer1} className={`${layerClasses} h-[66.3%] top-[18.1%] z-0`}>
+          <img alt="" className="block h-full w-full object-cover object-bottom" src={imgZLevel1} />
+        </div>
+
+        {/* Layer 2 */}
+        <div ref={refLayer2} className={`${layerClasses} h-[81.6%] top-[2.9%] w-[100%] z-10`}>
+          <img alt="" className="block h-full w-full object-cover object-bottom" src={imgZLevel2} />
+        </div>
+
+        {/* Layer 3 */}
+        <div ref={refLayer3} className={`${layerClasses} h-[80.5%] top-[4.1%] z-20`}>
+          <img alt="" className="block h-full w-full object-cover object-bottom" src={imgZLevel3} />
+        </div>
+
+        {/* --- NEW TITLE LAYER --- */}
+        {/* Placed physically between 3 and 4. z-[25] ensures it sits between z-20 and z-30 */}
+        <div 
+            ref={refTitle} 
+            className={`${layerClasses} z-[25] flex justify-center items-start top-[7%] h-auto`}
+        >
+             {/* You may need to adjust the width (w-[60%]) or top position above to fit your specific SVG size */}
+            <img alt="Fraser W Levack" className="w-[80%] md:w-[90%] object-contain drop-shadow-lg" src={imgTitle} />
+        </div>
+        {/* ----------------------- */}
+
+        {/* Layer 4 */}
+        <div ref={refLayer4} className={`${layerClasses} h-[70.9%] left-0 top-[13.6%] w-[99.8%] z-30`}>
+          <img alt="" className="block h-full w-full object-cover object-bottom" src={imgZLevel4} />
+        </div>
+
+        {/* Layer 5 */}
+        <div ref={refLayer5} className={`${layerClasses} h-[54.4%] left-[21.2%] top-[30%] w-[78.8%] z-40`}>
+          <img alt="" className="block h-full w-full object-cover object-bottom" src={imgZLevel5} />
+        </div>
+
+        {/* Layer 6 */}
+        <div ref={refLayer6} className={`${layerClasses} h-[43.9%] left-[35.5%] top-[40.6%] w-[64.5%] z-50`}>
+          <img alt="" className="block h-full w-full object-cover object-bottom" src={imgZLevel6} />
+        </div>
+
+        {/* Layer 7 */}
+        <div ref={refLayer7} className={`${layerClasses} h-[33.1%] top-[51.7%] w-[100%] z-[55]`}>
+          <img alt="" className="block h-full w-full object-cover object-bottom" src={imgZLevel7} />
+        </div>
+      </div>
+
+      {/* FOREGROUND GROUP */}
+      <div className={`absolute bottom-0 z-[70] pointer-events-none ${containerClasses}`}>
+        <div className="absolute h-[75.5%] left-0 top-[9.4%] w-full">
+          <img alt="" className="block h-full w-full object-cover object-bottom" src={imgZLevel8} />
+        </div>
+      </div>
+
+    </div>
+  );
+}
