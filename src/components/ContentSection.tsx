@@ -5,8 +5,8 @@ const imgImage3 = "/content/ski.png";
 export default function ContentSection() {
   const navItems = [
     { text: 'PROJECTS', url: '#' },
-    { text: 'LINKED IN', url: 'https://linkedin...' },
-    { text: 'GIT HUB', url: 'https://github...' },
+    { text: 'LINKED IN', url: 'https://www.linkedin.com/in/fraser-levack' },
+    { text: 'GIT HUB', url: 'https://github.com/Fraser-Levack' },
     { text: 'CONTACT', url: '#' }
   ];
 
