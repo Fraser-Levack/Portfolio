@@ -49,7 +49,7 @@ export default function MountainLandscape() {
     const renderLoop = () => {
       // Check if we are on a mobile device (under 768px)
       // Mobile gets a snappier 0.18, Desktop keeps the floaty 0.08
-      const ease = window.innerWidth < 768 ? 0.18 : 0.08; 
+      const ease = window.innerWidth < 768 ? 0.03 : 0.08; 
       
       currentScrollY += (targetScrollY - currentScrollY) * ease;
       const y = currentScrollY;
