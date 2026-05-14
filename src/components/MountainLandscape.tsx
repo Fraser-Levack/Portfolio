@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef , useState} from "react";
 import SnowOverlay from "./SnowOverlay";
 
 const imgZLevel1 = "/mountainLandscape/Z_level_1.svg";
@@ -25,6 +25,8 @@ export default function MountainLandscape() {
   const refLayer6 = useRef<HTMLDivElement>(null);
   const refLayer7 = useRef<HTMLDivElement>(null);
 
+  const [showSnow, setShowSnow] = useState(false);
+
   useEffect(() => {
     // Track where the user actually is (target) vs where the animation is (current)
     let targetScrollY = window.scrollY;
@@ -36,16 +38,20 @@ export default function MountainLandscape() {
       targetScrollY = window.scrollY;
     };
 
+    const handleResize = () => {
+          setShowSnow(window.innerWidth >= 768);
+        };
+    
+    handleResize(); // Check immediately on mount
+    window.addEventListener("resize", handleResize, { passive: true });
+
     // 2. The render loop constantly eases the current position toward the target
     const renderLoop = () => {
-      // The easing factor. Lower = smoother/heavier, Higher = faster/snappier. 
-      // 0.08 to 0.1 is the sweet spot for parallax.
-      const ease = 0.08; 
+      // Check if we are on a mobile device (under 768px)
+      // Mobile gets a snappier 0.18, Desktop keeps the floaty 0.08
+      const ease = window.innerWidth < 768 ? 0.18 : 0.08; 
       
-      // Calculate the smoothed value
       currentScrollY += (targetScrollY - currentScrollY) * ease;
-
-      // Apply the smoothed value to the transforms
       const y = currentScrollY;
 
       if (refLayer1.current) refLayer1.current.style.transform = `translate3d(0, ${y * 0.6}px, 0)`;
@@ -68,6 +74,7 @@ export default function MountainLandscape() {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize); // Clean up the new listener
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
@@ -78,9 +85,12 @@ export default function MountainLandscape() {
   return (
     <div className="bg-gradient-to-b from-[#529AE4] to-[79.327%] to-white via-[#99D2F0] via-[67.788%] relative h-[60vh] md:h-screen w-screen overflow-hidden flex items-end justify-center">
       
+      {/* Conditionally render the snow ONLY on desktop */}
+      {showSnow && (
       <div className="fixed top-0 left-0 w-screen h-screen pointer-events-none max-md:z-[100] md:z-[60]">
          <SnowOverlay />
       </div>
+      )}
 
       {/* BACKGROUND GROUP */}
       <div className={`relative z-0 ${containerClasses}`}>
@@ -101,13 +111,17 @@ export default function MountainLandscape() {
         </div>
 
         {/* --- NEW TITLE LAYER --- */}
-        {/* Placed physically between 3 and 4. z-[25] ensures it sits between z-20 and z-30 */}
         <div 
             ref={refTitle} 
-            className={`${layerClasses} z-[25] flex justify-center items-start top-[7%] h-auto`}
+            // Optional: You can tweak the 'top' percentage if making it wider pushes it too far down
+            className={`${layerClasses} z-[25] flex justify-center items-start top-[5%] md:top-[7%] h-auto`}
         >
-             {/* You may need to adjust the width (w-[60%]) or top position above to fit your specific SVG size */}
-            <img alt="Fraser W Levack" className="w-[80%] md:w-[90%] object-contain" src={imgTitle} />
+            <img 
+              alt="Fraser W Levack" 
+              // Mobile: 98% width | Desktop: 85% width | Large Desktop: 75% width
+              className="w-[98%] md:w-[85%] lg:w-[75%] object-contain" 
+              src={imgTitle} 
+            />
         </div>
         {/* ----------------------- */}
 
