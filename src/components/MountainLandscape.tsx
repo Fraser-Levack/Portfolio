@@ -26,39 +26,49 @@ export default function MountainLandscape() {
   const refLayer7 = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ticking = false;
+    // Track where the user actually is (target) vs where the animation is (current)
+    let targetScrollY = window.scrollY;
+    let currentScrollY = window.scrollY;
+    let animationFrameId: number;
 
-    const updateTransforms = () => {
-      const scrollY = window.scrollY;
-
-      // translate3d forces the GPU to take over the rendering
-      if (refLayer1.current) refLayer1.current.style.transform = `translate3d(0, ${scrollY * 0.6}px, 0)`;
-      if (refLayer2.current) refLayer2.current.style.transform = `translate3d(0, ${scrollY * 0.55}px, 0)`;
-      if (refLayer3.current) refLayer3.current.style.transform = `translate3d(0, ${scrollY * 0.5}px, 0)`;
-      
-      // Title
-      if (refTitle.current) refTitle.current.style.transform = `translate3d(0, ${scrollY * 0.85}px, 0)`;
-
-      if (refLayer4.current) refLayer4.current.style.transform = `translate3d(0, ${scrollY * 0.4}px, 0)`;
-      if (refLayer5.current) refLayer5.current.style.transform = `translate3d(0, ${scrollY * 0.3}px, 0)`;
-      if (refLayer6.current) refLayer6.current.style.transform = `translate3d(0, ${scrollY * 0.2}px, 0)`;
-      if (refLayer7.current) refLayer7.current.style.transform = `translate3d(0, ${scrollY * 0.15}px, 0)`;
-      
-      ticking = false;
+    // 1. Scroll event ONLY updates the target destination
+    const handleScroll = () => {
+      targetScrollY = window.scrollY;
     };
 
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateTransforms);
-        ticking = true;
-      }
+    // 2. The render loop constantly eases the current position toward the target
+    const renderLoop = () => {
+      // The easing factor. Lower = smoother/heavier, Higher = faster/snappier. 
+      // 0.08 to 0.1 is the sweet spot for parallax.
+      const ease = 0.08; 
+      
+      // Calculate the smoothed value
+      currentScrollY += (targetScrollY - currentScrollY) * ease;
+
+      // Apply the smoothed value to the transforms
+      const y = currentScrollY;
+
+      if (refLayer1.current) refLayer1.current.style.transform = `translate3d(0, ${y * 0.6}px, 0)`;
+      if (refLayer2.current) refLayer2.current.style.transform = `translate3d(0, ${y * 0.55}px, 0)`;
+      if (refLayer3.current) refLayer3.current.style.transform = `translate3d(0, ${y * 0.5}px, 0)`;
+      
+      if (refTitle.current) refTitle.current.style.transform = `translate3d(0, ${y * 0.85}px, 0)`;
+
+      if (refLayer4.current) refLayer4.current.style.transform = `translate3d(0, ${y * 0.4}px, 0)`;
+      if (refLayer5.current) refLayer5.current.style.transform = `translate3d(0, ${y * 0.3}px, 0)`;
+      if (refLayer6.current) refLayer6.current.style.transform = `translate3d(0, ${y * 0.2}px, 0)`;
+      if (refLayer7.current) refLayer7.current.style.transform = `translate3d(0, ${y * 0.15}px, 0)`;
+
+      // Loop to next frame
+      animationFrameId = requestAnimationFrame(renderLoop);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    updateTransforms(); // Initial call
+    renderLoop(); // Kick off the loop
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
