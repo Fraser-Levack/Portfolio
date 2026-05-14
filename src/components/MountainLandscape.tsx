@@ -26,26 +26,36 @@ export default function MountainLandscape() {
   const refLayer7 = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateTransforms = () => {
       const scrollY = window.scrollY;
 
-      // Update transforms
-      if (refLayer1.current) refLayer1.current.style.transform = `translateY(${scrollY * 0.6}px)`;
-      if (refLayer2.current) refLayer2.current.style.transform = `translateY(${scrollY * 0.55}px)`;
-      if (refLayer3.current) refLayer3.current.style.transform = `translateY(${scrollY * 0.5}px)`;
+      // translate3d forces the GPU to take over the rendering
+      if (refLayer1.current) refLayer1.current.style.transform = `translate3d(0, ${scrollY * 0.6}px, 0)`;
+      if (refLayer2.current) refLayer2.current.style.transform = `translate3d(0, ${scrollY * 0.55}px, 0)`;
+      if (refLayer3.current) refLayer3.current.style.transform = `translate3d(0, ${scrollY * 0.5}px, 0)`;
       
-      // NEW: Title logic
-      // Speed is 0.45 (Between Layer 3's 0.5 and Layer 4's 0.4)
-      if (refTitle.current) refTitle.current.style.transform = `translateY(${scrollY * 0.85}px)`;
+      // Title
+      if (refTitle.current) refTitle.current.style.transform = `translate3d(0, ${scrollY * 0.85}px, 0)`;
 
-      if (refLayer4.current) refLayer4.current.style.transform = `translateY(${scrollY * 0.4}px)`;
-      if (refLayer5.current) refLayer5.current.style.transform = `translateY(${scrollY * 0.3}px)`;
-      if (refLayer6.current) refLayer6.current.style.transform = `translateY(${scrollY * 0.2}px)`;
-      if (refLayer7.current) refLayer7.current.style.transform = `translateY(${scrollY * 0.15}px)`;
+      if (refLayer4.current) refLayer4.current.style.transform = `translate3d(0, ${scrollY * 0.4}px, 0)`;
+      if (refLayer5.current) refLayer5.current.style.transform = `translate3d(0, ${scrollY * 0.3}px, 0)`;
+      if (refLayer6.current) refLayer6.current.style.transform = `translate3d(0, ${scrollY * 0.2}px, 0)`;
+      if (refLayer7.current) refLayer7.current.style.transform = `translate3d(0, ${scrollY * 0.15}px, 0)`;
+      
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateTransforms);
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial call
+    updateTransforms(); // Initial call
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -87,7 +97,7 @@ export default function MountainLandscape() {
             className={`${layerClasses} z-[25] flex justify-center items-start top-[7%] h-auto`}
         >
              {/* You may need to adjust the width (w-[60%]) or top position above to fit your specific SVG size */}
-            <img alt="Fraser W Levack" className="w-[80%] md:w-[90%] object-contain drop-shadow-lg" src={imgTitle} />
+            <img alt="Fraser W Levack" className="w-[80%] md:w-[90%] object-contain" src={imgTitle} />
         </div>
         {/* ----------------------- */}
 
