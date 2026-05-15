@@ -14,7 +14,7 @@ export default function ContentSection() {
     <section className="relative w-full bg-[#f8faf9] pt-12 md:pt-24">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         {/* Grid: 1 col on mobile, 2 cols on Large screens */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* Left Side: Image and "SOFTWARE" */}
           <div className="relative group overflow-hidden rounded-lg z-[61]">
@@ -23,21 +23,24 @@ export default function ContentSection() {
               alt="Mountain"
               className="w-full h-[300px] md:h-[600px] object-cover transition-transform duration-700"
             />
-            <div className="absolute inset-0 flex items-start p-6">
-              {/* FIX: Added clamp() for smooth scaling and the missing font style */}
+            <div className="absolute inset-0 flex items-start p-2">
               <h2 
-                className="text-[#f8faf9] font-black text-[clamp(3rem,12vw,6rem)] tracking-tighter"
+                // Added flex, flex-wrap, and gap-x-3 to control horizontal spacing safely
+                className="flex flex-wrap gap-x-3 md:gap-x-5 text-[#f8faf9] font-black text-[clamp(3rem,6vw,6rem)] tracking-tighter leading-[1.1]"
                 style={{ fontFamily: "var(--font-unbounded), sans-serif" }}
               >
-                SOFTWARE
+                <span>SOFTWARE</span> 
+                <span className="lg:hidden">ENGINEER</span>
               </h2>
             </div>
           </div>
 
           {/* Right Side: Navigation & "ENGINEER" */}
-          <div className="flex flex-col gap-3">
-            {/* FIX: Added the missing font style to ENGINEER as well */}
-            <h2 className="hidden lg:block font-black text-[clamp(3rem,12vw,6rem)] tracking-tighter"
+          {/* FIX 1: Added pt-2 to match the p-2 (padding) from the left side's absolute container */}
+          <div className="flex flex-col items-start pt-2">
+            
+            {/* FIX 2: Added leading-[1.1] so the text bounding box matches SOFTWARE */}
+            <h2 className="hidden lg:block font-black text-[clamp(2rem,6vw,6rem)] tracking-tighter leading-[1.1]"
                 style={{ 
                   fontFamily: "var(--font-unbounded), sans-serif",
                   backgroundImage: 'linear-gradient(180deg, #549CE6 0%, #67B1EE 100%)',

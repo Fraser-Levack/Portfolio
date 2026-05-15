@@ -118,8 +118,8 @@ export default function MountainLandscape() {
         >
             <img 
               alt="Fraser W Levack" 
-              // Mobile: 98% width | Desktop: 85% width | Large Desktop: 75% width
-              className="w-[98%] md:w-[85%] lg:w-[75%] object-contain" 
+              // Mobile: 98% width | Desktop: 95% width | Large Desktop: 85% width
+              className="w-[98%] md:w-[95%] lg:w-[85%] object-contain" 
               src={imgTitle} 
             />
         </div>

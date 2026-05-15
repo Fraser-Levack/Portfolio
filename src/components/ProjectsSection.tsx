@@ -16,8 +16,8 @@ return (
               alt="Mountain"
               className="w-full h-[300px] md:h-[600px] object-cover transition-transform duration-700"
             />
-            <div className="absolute inset-0 flex items-start py-4 px-1">
-              <h2 className="text-[#f8faf9] font-black text-6xl md:text-7xl lg:text-8xl tracking-tighter"
+            <div className="absolute inset-0 flex items-start p-2">
+              <h2 className="text-[#f8faf9] font-black text-[clamp(3rem,6vw,6rem)] tracking-tighter"
               style={{ fontFamily: "var(--font-unbounded), sans-serif" }}>
                 PROJECTS
               </h2>
