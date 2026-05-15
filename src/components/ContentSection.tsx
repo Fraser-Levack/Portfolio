@@ -24,7 +24,11 @@ export default function ContentSection() {
               className="w-full h-[300px] md:h-[600px] object-cover transition-transform duration-700"
             />
             <div className="absolute inset-0 flex items-start p-6">
-              <h2 className="text-[#f8faf9] font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter">
+              {/* FIX: Added clamp() for smooth scaling and the missing font style */}
+              <h2 
+                className="text-[#f8faf9] font-black text-[clamp(3rem,12vw,6rem)] tracking-tighter"
+                style={{ fontFamily: "var(--font-unbounded), sans-serif" }}
+              >
                 SOFTWARE
               </h2>
             </div>
@@ -32,9 +36,10 @@ export default function ContentSection() {
 
           {/* Right Side: Navigation & "ENGINEER" */}
           <div className="flex flex-col gap-3">
-            {/* Engineer Text - Masked (Only visible on LG) */}
-            <h2 className="hidden lg:block font-black text-8xl tracking-tighter"
+            {/* FIX: Added the missing font style to ENGINEER as well */}
+            <h2 className="hidden lg:block font-black text-[clamp(3rem,12vw,6rem)] tracking-tighter"
                 style={{ 
+                  fontFamily: "var(--font-unbounded), sans-serif",
                   backgroundImage: 'linear-gradient(180deg, #549CE6 0%, #67B1EE 100%)',
                   WebkitBackgroundClip: 'text',
                   backgroundClip: 'text',
