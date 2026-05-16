@@ -37,7 +37,7 @@ export default function ContentSection() {
 
           {/* Right Side: Navigation & "ENGINEER" */}
           {/* FIX 1: Added pt-2 to match the p-2 (padding) from the left side's absolute container */}
-          <div className="flex flex-col items-start pt-2 gap-4 z-[61]">
+          <div className="flex flex-col items-start gap-4 pt-2 z-[61]">
             
             {/* FIX 2: Added leading-[1.1] so the text bounding box matches SOFTWARE */}
             <h2 className="hidden lg:block font-black text-[clamp(2rem,6vw,5rem)] tracking-tighter leading-[1.1]"
@@ -52,8 +52,13 @@ export default function ContentSection() {
               ENGINEER
             </h2>
 
+            {/* About description*/}
+            <p className=" text-[clamp(1.2rem,5vw,1.5rem)] text-[#549CE6] font-bold tracking-tight">
+              Hi, I'm Fraser! I'm a SWE @ NCR Atleos in Scotland.
+            </p>
+
             {/* Nav Links */}
-        <nav className="flex flex-col gap-3.5 py-6">
+        <nav className="flex flex-col gap-3.5 pb-6 pt-2">
           {navItems.map((item, i) => {
             // 2. Check if the URL starts with '#' (meaning it's an internal page jump)
             const isInternal = item.url.startsWith('#');

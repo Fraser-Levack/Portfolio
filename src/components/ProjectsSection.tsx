@@ -35,7 +35,7 @@ export default function ProjectsSection() {
           {/* ITEM 2: First Project */}
           <ProjectCard 
             title="Iron Smith" 
-            description="A Terminal-based 3D modeling scripting language. 
+            description="A terminal-based 3D modeling scripting language. 
             It allows you to build complex 3D shapes using code (Constructive Solid Geometry) 
             and view the results instantly via a custom GPU-accelerated raymarching engine. 
             Written in both Rust and Haskell. Current Work in progress."
