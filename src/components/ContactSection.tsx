@@ -39,7 +39,7 @@ export default function ContactSection() {
 
             {/* About description*/}
             <p className=" text-[clamp(1.2rem,5vw,1.5rem)] text-[#549CE6] font-bold tracking-tight">
-              I'm always open to new colaborations and opportunities, so feel free to reach out! Check out my CV for a more detailed view of my experiance too.
+              I'm always open to new colaborations and opportunities, so feel free to reach out! Check out my resume for a more detailed view of my experiance too.
             </p>
 
             <nav className="flex flex-col gap-4">
