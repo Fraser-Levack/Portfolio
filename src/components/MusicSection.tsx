@@ -20,7 +20,7 @@ export default function MusicSection() {
   if (loading) return <div className="h-96 flex items-center justify-center">Loading Vibes...</div>;
 
   return (
-    <section className="relative w-full bg-[#f8faf9] py-24 overflow-hidden">
+    <section className="relative w-full bg-[#f8faf9] pt-24 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           

@@ -3,6 +3,7 @@ import ContentSection from "@/components/ContentSection";
 import TechSection from "@/components/TechSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import MusicSection from "@/components/MusicSection";
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <TechSection />
       <ProjectsSection />
       <MusicSection />
+      <ContactSection />
     </main>
   );
 }
