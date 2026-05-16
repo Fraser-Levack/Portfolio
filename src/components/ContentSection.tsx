@@ -37,7 +37,7 @@ export default function ContentSection() {
 
           {/* Right Side: Navigation & "ENGINEER" */}
           {/* FIX 1: Added pt-2 to match the p-2 (padding) from the left side's absolute container */}
-          <div className="flex flex-col items-start pt-2">
+          <div className="flex flex-col items-start pt-2 gap-4">
             
             {/* FIX 2: Added leading-[1.1] so the text bounding box matches SOFTWARE */}
             <h2 className="hidden lg:block font-black text-[clamp(2rem,6vw,6rem)] tracking-tighter leading-[1.1]"

@@ -44,7 +44,7 @@ export default function MusicSection() {
               </div>
               
               <div className="flex flex-col gap-1">
-                <p className="text-1xl md:text-2xl font-bold text-[#f8faf9] line-clamp-1"
+                <p className="text-1xl md:text-2xl font-bold text-black line-clamp-1"
                 style={{ fontFamily: "var(--font-unbounded), sans-serif" }}>
                   {song?.title} <span className="text-1xl md:text-2xl font-normal"> -  {song?.artist} </span>
                 </p>
