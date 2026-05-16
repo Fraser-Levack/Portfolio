@@ -25,7 +25,7 @@ export default function MusicSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           
           {/* Left Side: Image Background with Metadata */}
-          <div className="relative group overflow-hidden rounded-lg z-[61] order-2 lg:order-1">
+          <div className="relative group overflow-hidden rounded-lg z-[61] order-1 lg:order-1">
             <img
               src={skyImage}
               alt="Sky Background"
@@ -63,7 +63,7 @@ export default function MusicSection() {
           </div>
 
           {/* Right Side: The Vinyl Visual */}
-          <div className="relative flex justify-center items-center order-1 lg:order-1 z-60 w-full py-10 pr-2 md:py-0">
+          <div className="relative flex justify-center items-center order-2 lg:order-2 z-60 w-full py-10 pr-2 md:py-0">
             
             {/* 
               1. OVERALL SIZE BUMP: 
@@ -100,7 +100,7 @@ export default function MusicSection() {
               </div>
 
               {/* The Sleeve (Album Art) */}
-              <div className="absolute inset-0 z-[60] shadow-[20px_20px_60px_rgba(0,0,0,0.2)] rounded-sm overflow-hidden bg-white">
+              <div className="absolute inset-0 z-[60] rounded-sm overflow-hidden bg-white">
                 {song.albumImageUrl && (
                   <img 
                     src={song.albumImageUrl} 
