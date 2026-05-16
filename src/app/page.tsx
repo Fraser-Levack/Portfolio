@@ -4,6 +4,7 @@ import TechSection from "@/components/TechSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import MusicSection from "@/components/MusicSection";
 import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <ProjectsSection />
       <MusicSection />
       <ContactSection />
+      <Footer />
     </main>
   );
 }
