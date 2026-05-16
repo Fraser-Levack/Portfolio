@@ -57,6 +57,8 @@ export default function ContentSection() {
               {navItems.map((item, i) => (
                 <a
                   key={i}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   href={item.url || "#"}
                   className="font-black text-4xl md:text-6xl lg:text-7xl hover:pl-4 transition-all duration-300 py-2"
                   style={{ 
