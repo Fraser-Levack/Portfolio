@@ -10,7 +10,7 @@ const proj3 = "/content/designfordisplacement.png";
 
 export default function ProjectsSection() {
   return (
-    <section className="relative w-full bg-[#f8faf9] pt-12 md:pt-24 z-[60]">
+    <section id="projects" className="relative w-full bg-[#f8faf9] pt-12 md:pt-24 z-[60]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         
         {/* The Grid: 1 col on mobile, 2 cols on Large screens */}
@@ -66,7 +66,7 @@ export default function ProjectsSection() {
                         database management system using Firebase and Cloudinary for
                         images and other media."
             imageUrl={proj3}
-            externalUrl="https://your-live-project.com"
+            externalUrl="https://designfordisplacement.info/"
           />
 
         </div>

@@ -4,10 +4,10 @@ const imgImage3 = "/content/ski.png";
 
 export default function ContentSection() {
   const navItems = [
-    { text: 'PROJECTS', url: '#' },
+    { text: 'PROJECTS', url: '#projects' },
     { text: 'LINKED IN', url: 'https://www.linkedin.com/in/fraser-levack' },
     { text: 'GIT HUB', url: 'https://github.com/Fraser-Levack' },
-    { text: 'CONTACT', url: '#' }
+    { text: 'CONTACT', url: '#contact' }
   ];
 
   return (
@@ -53,27 +53,33 @@ export default function ContentSection() {
             </h2>
 
             {/* Nav Links */}
-            <nav className="flex flex-col gap-3.5 py-6">
-              {navItems.map((item, i) => (
-                <a
-                  key={i}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={item.url || "#"}
-                  className="font-black text-4xl md:text-6xl lg:text-7xl hover:pl-4 transition-all duration-300 py-2"
-                  style={{ 
-                    fontFamily: "var(--font-unbounded), sans-serif",
-                    backgroundImage: 'linear-gradient(180deg, #549CE6 0%, #67B1EE 100%)',
-                    WebkitBackgroundClip: 'text',
-                    backgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundSize: 'cover'
-                  }}
-                >
-                  {item.text}
-                </a>
-              ))}
-            </nav>
+        <nav className="flex flex-col gap-3.5 py-6">
+          {navItems.map((item, i) => {
+            // 2. Check if the URL starts with '#' (meaning it's an internal page jump)
+            const isInternal = item.url.startsWith('#');
+
+            return (
+              <a
+                key={i}
+                href={item.url || "#"}
+                // 3. Only use _blank for external links, use _self for page jumps
+                target={isInternal ? "_self" : "_blank"}
+                rel={isInternal ? "" : "noopener noreferrer"}
+                className="font-black text-4xl md:text-6xl lg:text-7xl hover:pl-4 transition-all duration-300 py-2"
+                style={{ 
+                  fontFamily: "var(--font-unbounded), sans-serif",
+                  backgroundImage: 'linear-gradient(180deg, #549CE6 0%, #67B1EE 100%)',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundSize: 'cover'
+                }}
+              >
+                {item.text}
+              </a>
+            );
+          })}
+        </nav>
           </div>
         </div>
       </div>
