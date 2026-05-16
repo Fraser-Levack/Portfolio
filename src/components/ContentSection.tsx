@@ -26,7 +26,7 @@ export default function ContentSection() {
             <div className="absolute inset-0 flex items-start p-2">
               <h2 
                 // Added flex, flex-wrap, and gap-x-3 to control horizontal spacing safely
-                className="flex flex-wrap gap-x-3 md:gap-x-5 text-[#f8faf9] font-black text-[clamp(3rem,6vw,6rem)] tracking-tighter leading-[1.1]"
+                className="flex flex-wrap gap-x-3 md:gap-x-5 text-[#f8faf9] font-black text-[clamp(3rem,6vw,5rem)] tracking-tighter leading-[1.1]"
                 style={{ fontFamily: "var(--font-unbounded), sans-serif" }}
               >
                 <span>SOFTWARE</span> 
@@ -37,10 +37,10 @@ export default function ContentSection() {
 
           {/* Right Side: Navigation & "ENGINEER" */}
           {/* FIX 1: Added pt-2 to match the p-2 (padding) from the left side's absolute container */}
-          <div className="flex flex-col items-start pt-2 gap-4">
+          <div className="flex flex-col items-start pt-2 gap-4 z-[61]">
             
             {/* FIX 2: Added leading-[1.1] so the text bounding box matches SOFTWARE */}
-            <h2 className="hidden lg:block font-black text-[clamp(2rem,6vw,6rem)] tracking-tighter leading-[1.1]"
+            <h2 className="hidden lg:block font-black text-[clamp(2rem,6vw,5rem)] tracking-tighter leading-[1.1]"
                 style={{ 
                   fontFamily: "var(--font-unbounded), sans-serif",
                   backgroundImage: 'linear-gradient(180deg, #549CE6 0%, #67B1EE 100%)',

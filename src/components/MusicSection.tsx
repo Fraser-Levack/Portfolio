@@ -38,7 +38,7 @@ export default function MusicSection() {
                 style={{ fontFamily: "var(--font-unbounded), sans-serif" }}>
                   ON REPEAT
                 </h2>
-                <h3 className="text-[#1ed760] font-bold tracking-widest text-sm uppercase">
+                <h3 className="text-[#f8faf9] font-bold tracking-widest text-sm uppercase">
                   {song?.isPlaying ? "● Currently Spinning" : "○ Last Played"}
                 </h3>
               </div>

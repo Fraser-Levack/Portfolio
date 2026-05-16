@@ -25,7 +25,7 @@ export default function ProjectsSection() {
             />
             {/* Using the same padding logic you applied to the Software section */}
             <div className="absolute inset-0 flex items-start p-2 md:p-6">
-              <h2 className="text-[#f8faf9] font-black text-[clamp(3rem,6vw,6rem)] tracking-tighter leading-[1.1]"
+              <h2 className="text-[#f8faf9] font-black text-[clamp(3rem,6vw,5rem)] tracking-tighter leading-[1.1]"
                   style={{ fontFamily: "var(--font-unbounded), sans-serif" }}>
                 PROJECTS
               </h2>
