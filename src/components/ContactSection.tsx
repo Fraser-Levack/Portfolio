@@ -6,7 +6,7 @@ const contactImage = "/content/surf.jpg";
 export default function ContactSection() {
   const contactLinks = [
     { text: 'EMAIL', url: 'mailto:flevack28@gmail.com', external: false },
-    { text: 'LINKED IN', url: 'https://www.linkedin.com/in/fraser-levack', external: true },
+    { text: 'LINKEDIN', url: 'https://www.linkedin.com/in/fraser-levack', external: true },
     { text: 'RESUME', url: '/Fraser_W_Levack_CV_2026.pdf', external: true }
   ];
 

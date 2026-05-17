@@ -79,11 +79,14 @@ export default function MountainLandscape() {
     };
   }, []);
 
-  const containerClasses = "w-full min-w-full h-full md:h-auto md:aspect-[1728/1117] translate-y-[15.2%]";
-  const layerClasses = "absolute left-[-0.1%] w-[99.9%] will-change-transform ease-out";
+  // ADDED: scale-[1.01] creates a 1% global bleed to hide sub-pixel gaps on the bottom edge
+  const containerClasses = "w-full min-w-full h-[60vh] md:h-auto md:aspect-[1728/1117] translate-y-[15.2%] scale-[1.01]";
+
+  // ADDED: w-[102%] and left-[-1%] creates a safe overlap on the left and right edges
+  const layerClasses = "absolute left-[-1%] w-[102%] will-change-transform ease-out";
 
   return (
-    <div className="bg-gradient-to-b from-[#529AE4] to-[79.327%] to-white via-[#99D2F0] via-[67.788%] relative h-[60vh] md:h-screen w-screen overflow-hidden flex items-end justify-center">
+    <div className="bg-gradient-to-b from-[#529AE4] to-[79.327%] to-white via-[#99D2F0] via-[67.788%] relative relative relative min-h-[60vh] md:min-h-[100dvh] w-full overflow-hidden flex items-end justify-centerh-[60vh] md:min-h-[100dvh] w-full overflow-hidden flex items-end justify-center">
       
       {/* Conditionally render the snow ONLY on desktop */}
       {showSnow && (
