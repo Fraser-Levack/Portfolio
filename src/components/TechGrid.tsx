@@ -83,11 +83,11 @@ const TechGrid = () => {
                 return (
                   <div
                     key={item.name}
-                    className="flex items-center gap-2 md:gap-3 p-2 md:p-3 bg-white/80 rounded-lg border border-slate-100 shadow-sm group hover:border-slate-300 transition-all duration-300"
+                    className="flex items-center gap-2 md:gap-3 p-2 md:p-3 bg-white/80 rounded-lg border border-slate-100 shadow-sm group"
                   >
                     <div className="flex-shrink-0">
                       <Icon 
-                        className={`${item.color} transition-transform group-hover:scale-110`}
+                        className={`${item.color}`}
                         style={{ fontSize: "1.1rem" }} 
                       />
                     </div>
