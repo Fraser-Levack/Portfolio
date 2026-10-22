@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getReviews, type MusicReview } from "@/lib/supabase";
 import Footer from "@/components/footer";
 import RatingChart from "@/components/RatingChart";
+import ExpandableReview from "@/components/ExpandableReview";
 
 export const dynamic = "force-dynamic";
 
@@ -13,6 +14,12 @@ export const metadata: Metadata = {
 
 const skyImage = "/content/Pier.jpg";
 const unbounded = { fontFamily: "var(--font-unbounded), sans-serif" };
+
+// Long album/artist names get cut off (full name still shows on hover)
+const ALBUM_LIMIT = 40;
+const ARTIST_LIMIT = 35;
+const truncate = (text: string, limit: number) =>
+  text.length > limit ? `${text.slice(0, limit).trimEnd()}…` : text;
 
 type Dir = "asc" | "desc";
 
@@ -127,36 +134,33 @@ export default async function MusicReviews({ searchParams }: { searchParams: Pro
                 scroll={false}
                 className="ml-auto px-4 py-2 rounded-full text-sm font-bold border border-[#549CE6] text-[#549CE6] hover:bg-[#549CE6] hover:text-white transition-colors"
               >
-                {score}/10 only ✕
+                {score}/10 ✕
               </Link>
             )}
           </nav>
           <ul className="flex flex-col divide-y divide-slate-200">
             {sorted.map((r) => (
-              <li key={r.id} className="py-8 md:py-10 grid grid-cols-[96px_1fr] md:grid-cols-[180px_1fr_auto] gap-5 md:gap-10 items-start">
-                <div className="aspect-square rounded-sm overflow-hidden bg-[#121212] shadow-xl">
+              <li key={r.id} className="py-8 md:py-10 grid grid-cols-1 md:grid-cols-[180px_1fr_auto] gap-5 md:gap-10 items-start">
+                {/* Full-width cover on mobile, thumbnail beside the text on desktop */}
+                <div className="aspect-square w-full rounded-sm overflow-hidden bg-[#121212] shadow-xl">
                   {r.cover_url && <img src={r.cover_url} alt={`${r.album} cover`} className="w-full h-full object-cover" />}
                 </div>
 
                 <div className="flex flex-col gap-2 min-w-0">
-                  <h3 className="text-xl md:text-3xl font-bold leading-tight" style={unbounded}>
-                    {r.album}
-                    {r.relisten && (
-                      <span className="ml-3 align-middle inline-block px-2.5 py-1 rounded-full border border-[#549CE6] text-[#549CE6] text-[10px] md:text-xs font-bold tracking-widest uppercase" style={{ fontFamily: "inherit" }}>
-                        ↻ Relisten
-                      </span>
-                    )}
+                  <h3 className="text-xl md:text-3xl font-bold leading-tight" style={unbounded} title={r.album}>
+                    {truncate(r.album, ALBUM_LIMIT)}
                   </h3>
-                  <p className="text-slate-600 font-medium">
-                    {r.artist}{r.release_year && ` · ${r.release_year}`}
+                  <p className="text-slate-600 font-medium" title={r.artist}>
+                    {truncate(r.artist, ARTIST_LIMIT)}{r.release_year && ` · ${r.release_year}`}
                   </p>
                   {/* Rating shows inline on mobile */}
                   <p className="md:hidden text-2xl font-black text-[#549CE6]" style={unbounded}>
                     {Number(r.rating)}<span className="text-sm text-slate-400">/10</span>
                   </p>
-                  {r.review && <p className="text-slate-800 leading-relaxed mt-2 whitespace-pre-line max-w-[70ch]">{r.review}</p>}
+                  {r.review && <ExpandableReview text={r.review} />}
                   <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-3 text-xs font-bold tracking-widest uppercase text-slate-400">
                     <span>{new Date(r.listened_on).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</span>
+                    {r.relisten && <span>↻ Relisten</span>}
                     {r.favourite_track && <span>★ {r.favourite_track}</span>}
                     {r.spotify_url && (
                       <a href={r.spotify_url} target="_blank" rel="noopener noreferrer" className="hover:text-[#549CE6] transition-colors">
