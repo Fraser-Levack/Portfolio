@@ -16,8 +16,8 @@ const skyImage = "/content/Pier.jpg";
 const unbounded = { fontFamily: "var(--font-unbounded), sans-serif" };
 
 // Long album/artist names get cut off (full name still shows on hover)
-const ALBUM_LIMIT = 40;
-const ARTIST_LIMIT = 35;
+const ALBUM_LIMIT = 20;
+const ARTIST_LIMIT = 15;
 const truncate = (text: string, limit: number) =>
   text.length > limit ? `${text.slice(0, limit).trimEnd()}…` : text;
 
