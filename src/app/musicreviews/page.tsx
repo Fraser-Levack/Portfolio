@@ -4,6 +4,7 @@ import { getReviews, type MusicReview } from "@/lib/supabase";
 import Footer from "@/components/footer";
 import RatingChart from "@/components/RatingChart";
 import ExpandableReview from "@/components/ExpandableReview";
+import Triangle from "@/components/Triangle";
 
 export const dynamic = "force-dynamic";
 
@@ -25,16 +26,16 @@ type Dir = "asc" | "desc";
 
 // Each sort has an ascending compare; clicking the active one flips direction.
 // `dir` is the direction picked when first switching to that sort.
-const SORTS: Record<string, { compare: (a: MusicReview, b: MusicReview) => number; dir: Dir; label: (dir: Dir) => string }> = {
+const SORTS: Record<string, { compare: (a: MusicReview, b: MusicReview) => number; dir: Dir; label: (dir: Dir) => React.ReactNode }> = {
   age: {
     compare: (a, b) => a.listened_on.localeCompare(b.listened_on) || a.created_at.localeCompare(b.created_at),
     dir: "asc",
-    label: (dir) => `Age ${dir === "asc" ? "▲" : "▼"}`,
+    label: (dir) => <>Age <Triangle dir={dir === "asc" ? "up" : "down"} /></>,
   },
   rating: {
     compare: (a, b) => Number(a.rating) - Number(b.rating),
     dir: "desc",
-    label: (dir) => `Rating ${dir === "asc" ? "▲" : "▼"}`,
+    label: (dir) => <>Rating <Triangle dir={dir === "asc" ? "up" : "down"} /></>,
   },
   alpha: {
     compare: (a, b) => a.album.localeCompare(b.album),
@@ -77,7 +78,7 @@ export default async function MusicReviews({ searchParams }: { searchParams: Pro
           <img src={skyImage} alt="Sky Background" className="w-full h-[260px] md:h-[400px] object-cover" />
           <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-12">
             <Link href="/" className="text-[#f8faf9] font-bold tracking-widest text-xs md:text-sm uppercase w-max hover:-translate-x-1 transition-transform">
-              ◀ Back home
+              <Triangle dir="left" /> Back home
             </Link>
             <div className="space-y-2">
               <h1 className="text-[#f8faf9] font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-none" style={unbounded}>
@@ -164,7 +165,7 @@ export default async function MusicReviews({ searchParams }: { searchParams: Pro
                     {r.favourite_track && <span>★ {r.favourite_track}</span>}
                     {r.spotify_url && (
                       <a href={r.spotify_url} target="_blank" rel="noopener noreferrer" className="hover:text-[#549CE6] transition-colors">
-                        Spotify ▶
+                        Spotify <Triangle dir="right" />
                       </a>
                     )}
                     <Link href={`/musicreviews/${r.id}/edit`} className="hover:text-[#549CE6] transition-colors">

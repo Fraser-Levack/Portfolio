@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Triangle from "@/components/Triangle";
 
 // Reviews longer than this get clamped with a "Read more" toggle
 const PREVIEW_LENGTH = 280;
@@ -21,7 +22,7 @@ export default function ExpandableReview({ text }: { text: string }) {
           aria-expanded={expanded}
           className="mt-1 -ml-1 p-1 text-sm text-slate-400 hover:text-black transition-colors"
         >
-          {expanded ? "▲" : "▼"}
+          <Triangle dir={expanded ? "up" : "down"} />
         </button>
       )}
     </div>
