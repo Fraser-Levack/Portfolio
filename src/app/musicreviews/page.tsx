@@ -29,7 +29,7 @@ type Dir = "asc" | "desc";
 const SORTS: Record<string, { compare: (a: MusicReview, b: MusicReview) => number; dir: Dir; label: (dir: Dir) => React.ReactNode }> = {
   age: {
     compare: (a, b) => a.listened_on.localeCompare(b.listened_on) || a.created_at.localeCompare(b.created_at),
-    dir: "asc",
+    dir: "desc",
     label: (dir) => <>Age <Triangle dir={dir === "asc" ? "up" : "down"} /></>,
   },
   rating: {
@@ -47,7 +47,7 @@ const SORTS: Record<string, { compare: (a: MusicReview, b: MusicReview) => numbe
 // Builds the page URL, leaving out anything that's at its default
 const buildHref = (sort: string, dir: Dir, score: number | null) => {
   const query = new URLSearchParams();
-  if (!(sort === "age" && dir === "asc")) {
+  if (!(sort === "age" && dir === "desc")) {
     query.set("sort", sort);
     query.set("dir", dir);
   }
