@@ -29,12 +29,12 @@ const SORTS: Record<string, { compare: (a: MusicReview, b: MusicReview) => numbe
   age: {
     compare: (a, b) => a.listened_on.localeCompare(b.listened_on) || a.created_at.localeCompare(b.created_at),
     dir: "asc",
-    label: (dir) => `Age ${dir === "asc" ? "↑" : "↓"}`,
+    label: (dir) => `Age ${dir === "asc" ? "▲" : "▼"}`,
   },
   rating: {
     compare: (a, b) => Number(a.rating) - Number(b.rating),
     dir: "desc",
-    label: (dir) => `Rating ${dir === "asc" ? "↑" : "↓"}`,
+    label: (dir) => `Rating ${dir === "asc" ? "▲" : "▼"}`,
   },
   alpha: {
     compare: (a, b) => a.album.localeCompare(b.album),
@@ -77,7 +77,7 @@ export default async function MusicReviews({ searchParams }: { searchParams: Pro
           <img src={skyImage} alt="Sky Background" className="w-full h-[260px] md:h-[400px] object-cover" />
           <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-12">
             <Link href="/" className="text-[#f8faf9] font-bold tracking-widest text-xs md:text-sm uppercase w-max hover:-translate-x-1 transition-transform">
-              ← Back home
+              ◀ Back home
             </Link>
             <div className="space-y-2">
               <h1 className="text-[#f8faf9] font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-none" style={unbounded}>
@@ -164,7 +164,7 @@ export default async function MusicReviews({ searchParams }: { searchParams: Pro
                     {r.favourite_track && <span>★ {r.favourite_track}</span>}
                     {r.spotify_url && (
                       <a href={r.spotify_url} target="_blank" rel="noopener noreferrer" className="hover:text-[#549CE6] transition-colors">
-                        Spotify ↗
+                        Spotify ▶
                       </a>
                     )}
                     <Link href={`/musicreviews/${r.id}/edit`} className="hover:text-[#549CE6] transition-colors">

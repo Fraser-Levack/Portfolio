@@ -23,7 +23,7 @@ export default function ReviewForm({ title, submitLabel, action: serverAction, r
     <main className="min-h-screen bg-[#f8faf9] text-black">
       <div className="max-w-xl mx-auto px-6 py-10 md:py-16">
         <Link href="/musicreviews" className="text-xs font-bold tracking-widest uppercase text-slate-400 hover:text-[#549CE6] transition-colors">
-          ← Reviews
+          ◀ Reviews
         </Link>
         <h1 className="font-black text-4xl md:text-6xl tracking-tighter leading-none mt-4 mb-10" style={unbounded}>
           {title}

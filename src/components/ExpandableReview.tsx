@@ -17,9 +17,11 @@ export default function ExpandableReview({ text }: { text: string }) {
       {long && (
         <button
           onClick={() => setExpanded(!expanded)}
-          className="mt-2 text-xs font-bold tracking-widest uppercase text-[#549CE6] hover:text-black transition-colors"
+          aria-label={expanded ? "Show less" : "Read more"}
+          aria-expanded={expanded}
+          className="mt-1 -ml-1 p-1 text-sm text-slate-400 hover:text-black transition-colors"
         >
-          {expanded ? "Show less ↑" : "Read more ↓"}
+          {expanded ? "▲" : "▼"}
         </button>
       )}
     </div>
