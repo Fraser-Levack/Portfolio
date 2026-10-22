@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 const skyImage = "/content/sky.jpeg";
 
@@ -70,7 +71,8 @@ export default function MusicSection() {
               Increased percentages and bumped max-w from 400px to 450px.
               Increased mr (margin-right) slightly to make room for the further slide-out.
             */}
-            <div className="relative w-[65%] md:w-[60%] lg:w-[70%] max-w-[420px] aspect-square mr-[20%] md:mr-[25%]">
+            <div className="w-[65%] md:w-[60%] lg:w-[70%] max-w-[420px] mr-[20%] md:mr-[25%]">
+            <div className="relative w-full aspect-square">
               
               {/* 
                 2 & 3. DISK SCALE & SLIDE OUT:
@@ -111,6 +113,23 @@ export default function MusicSection() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-white/10 pointer-events-none"></div>
               </div>
 
+            </div>
+
+            {/* Link through to the music reviews page */}
+            <Link
+              href="/musicreviews"
+              className="relative z-[61] inline-block mt-10 font-black text-4xl md:text-6xl lg:text-7xl hover:pl-4 transition-all duration-300 py-2"
+              style={{
+                fontFamily: "var(--font-unbounded), sans-serif",
+                backgroundImage: 'linear-gradient(180deg, #549CE6 0%, #67B1EE 100%)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundSize: 'cover'
+              }}
+            >
+              REVIEWS
+            </Link>
             </div>
           </div>
 

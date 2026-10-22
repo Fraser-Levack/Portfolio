@@ -9,7 +9,7 @@ const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
 const RECENTLY_PLAYED_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-played`;
 
-const getAccessToken = async () => {
+export const getAccessToken = async () => {
   const response = await fetch(TOKEN_ENDPOINT, {
     method: 'POST',
     headers: {
@@ -76,5 +76,31 @@ export const getMySongStatus = async () => {
     artist: lastSong.artists.map((_artist: any) => _artist.name).join(', '),
     albumImageUrl: lastSong.album.images[0].url,
     songUrl: lastSong.external_urls.spotify,
+  };
+};
+const SEARCH_ENDPOINT = `https://api.spotify.com/v1/search`;
+
+// Looks up an album so reviews get cover art + a link without typing them in
+export const searchAlbum = async (album: string, artist: string) => {
+  const { access_token } = await getAccessToken();
+  const q = `album:${album}${artist ? ` artist:${artist}` : ''}`;
+
+  const res = await fetch(`${SEARCH_ENDPOINT}?${new URLSearchParams({ q, type: 'album', limit: '1' })}`, {
+    headers: { Authorization: `Bearer ${access_token}` },
+    cache: 'no-store',
+  });
+
+  if (!res.ok) return null;
+
+  const data = await res.json();
+  const match = data.albums?.items?.[0];
+  if (!match) return null;
+
+  return {
+    title: match.name as string,
+    artist: match.artists.map((_artist: any) => _artist.name).join(', ') as string,
+    coverUrl: (match.images[0]?.url ?? null) as string | null,
+    spotifyUrl: match.external_urls.spotify as string,
+    releaseYear: match.release_date ? Number(match.release_date.slice(0, 4)) : null,
   };
 };
