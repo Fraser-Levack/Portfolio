@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Albums Fraser Levack has listened to and reviewed",
 };
 
-const skyImage = "/content/pier.jpg";
+const skyImage = "/content/Pier.jpg";
 const unbounded = { fontFamily: "var(--font-unbounded), sans-serif" };
 
 type Dir = "asc" | "desc";
