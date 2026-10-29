@@ -83,9 +83,12 @@ const SEARCH_ENDPOINT = `https://api.spotify.com/v1/search`;
 // Looks up an album so reviews get cover art + a link without typing them in
 export const searchAlbum = async (album: string, artist: string) => {
   const { access_token } = await getAccessToken();
-  const q = `album:${album}${artist ? ` artist:${artist}` : ''}`;
+  // Quote the values - unquoted, only the first word belongs to the filter, and
+  // multi-word self-titled albums (album:Scissor Sisters artist:Scissor Sisters) find nothing
+  const quote = (s: string) => `"${s.replace(/"/g, '')}"`;
+  const q = `album:${quote(album)}${artist ? ` artist:${quote(artist)}` : ''}`;
 
-  const res = await fetch(`${SEARCH_ENDPOINT}?${new URLSearchParams({ q, type: 'album', limit: '1' })}`, {
+  const res = await fetch(`${SEARCH_ENDPOINT}?${new URLSearchParams({ q, type: 'album', limit: '10' })}`, {
     headers: { Authorization: `Bearer ${access_token}` },
     cache: 'no-store',
   });
@@ -93,7 +96,14 @@ export const searchAlbum = async (album: string, artist: string) => {
   if (!res.ok) return null;
 
   const data = await res.json();
-  const match = data.albums?.items?.[0];
+  const items: any[] = data.albums?.items ?? [];
+
+  // Prefer an exact title match (earliest release, so originals beat remasters/later
+  // self-titled albums) over Spotify's top hit, which is often a sequel like "(LP2)"
+  const exact = items
+    .filter((item) => item.name.toLowerCase() === album.toLowerCase())
+    .sort((a, b) => (a.release_date ?? '').localeCompare(b.release_date ?? ''));
+  const match = exact[0] ?? items[0];
   if (!match) return null;
 
   return {
