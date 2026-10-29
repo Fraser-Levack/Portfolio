@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { startTransition, useActionState } from "react";
 import Link from "next/link";
 import Triangle from "@/components/Triangle";
 import type { FormState } from "@/app/musicreviews/actions";
@@ -30,7 +30,16 @@ export default function ReviewForm({ title, submitLabel, action: serverAction, r
           {title}
         </h1>
 
-        <form action={action} className="flex flex-col gap-6">
+        {/* Submit via onSubmit rather than action={...} - React resets forms after an
+            action finishes, which would wipe the review on a wrong password */}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            const formData = new FormData(e.currentTarget);
+            startTransition(() => action(formData));
+          }}
+          className="flex flex-col gap-6"
+        >
           <label className="flex flex-col gap-2">
             <span className={label}>Album</span>
             <input name="album" required defaultValue={review?.album} className={input} autoComplete="off" />
